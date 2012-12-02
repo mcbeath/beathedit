@@ -1,4 +1,5 @@
-package com.mcbeath.life.commons;
+package com.mcbeath.life.commons.pojo;
+
 
 public class User extends BaseBean {
     private String userId;

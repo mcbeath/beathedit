@@ -2,7 +2,7 @@ package com.mcbeath.life.user.service.jdbc;
 
 import java.util.List;
 
-import com.mcbeath.life.commons.User;
+import com.mcbeath.life.commons.pojo.User;
 
 public interface JdbcUserService {
   /**

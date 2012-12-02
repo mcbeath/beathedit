@@ -1,4 +1,4 @@
-package com.mcbeath.life.dbutils;
+package com.mcbeath.life.utils;
 
 import java.sql.Connection;
 import java.sql.Date;
