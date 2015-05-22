@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<title>audio</title>
+</head>
+<body>
+   <!-- 
+	    autoplay        如果出现该属性，则音频在就绪后马上播放。
+		controls   		如果出现该属性，则向用户显示控件，比如播放按钮。
+		loop  			如果出现该属性，则每当音频结束时重新开始播放。
+		preload  		如果出现该属性，则音频在页面加载时进行加载，并预备播放。如果使用 "autoplay"，则忽略该属性。
+		src  			要播放的音频的 URL。
+    -->
+   <!-- 单个音频文件 -->
+   <audio src="resource/media/1.ogg" controls="controls">
+       您的浏览器不支持audio标签。
+   </audio>
+   <!-- 多个音频文件 -->
+   <audio controls="controls">
+      <source src="resource/media/1.ogg" type="audio/ogg">
+      <source src="resource/media/1.mp3" type="audio/mpeg">
+            您的浏览器不支持audio标签。
+   </audio>
+</body>
+</html>
