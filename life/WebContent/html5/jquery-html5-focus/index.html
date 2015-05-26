@@ -1,0 +1,188 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+
+	<title>基于HTML5功能强大的滑块幻灯片 - 爱编程w2b.com</title>
+
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    
+    <!-- for Raxus Slider -->
+    <link rel="stylesheet" href="css/raxus.css" media="screen" type="text/css">
+    <script type="text/javascript" src="js/raxus-slider.min.js"></script>
+    <!-- for Raxus Slider #end -->
+
+    <!-- for documentation: you don't need them -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" type="text/css">
+    <link rel="stylesheet" href="documentation/css/documentation.css" media="screen" type="text/css">
+    <script type="text/javascript" src="documentation/js/document.js"></script>
+    <script src="documentation/js/highlight.pack.js"></script>
+    <script>
+    	hljs.initHighlightingOnLoad();
+    </script>
+    <!-- for documentation #end: you don't need them -->
+
+    <style>
+        #mySlider {
+            width: 650px;
+            height: 400px;
+            margin: auto; /* for center alignment */
+        }
+        #mySlider .mini-images li {
+            width: 100px;
+            height: 50px;
+        }
+
+        /* for tablet */
+        @media screen and (max-width: 980px) {
+            #mySlider {
+                width: 100%;
+                height: 450px;
+            }
+        }
+        /* for mobile */
+        @media screen and (max-width: 640px) {
+            #mySlider {
+                width: 100%;
+                height: 250px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+<section class="welcome">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12 a">
+
+                <div id="mySlider" class="raxus-slider" data-autoplay="3000" data-arrows="show" data-fullscreen="show" data-dots="show" data-keypress="true" data-thumbnail="bottom">
+                    <ul class="slider-relative" id="relative">
+                        <li class="slide fix-width">
+                            <a href="http://google.com"><img src="img/content/1.jpg" alt=""></a>
+                            <span class="text ani-left">
+                                <strong>Breaking Bad</strong>
+                                <small>American crime drama television series created and produced by Vince Gilligan.</small>
+                            </span>
+                        </li>
+                        <li class="slide">
+                            <img src="img/content/13.jpg" alt="" data-videourl="http://sc.chinaz.com/" />
+                            <span class="text ani-top">
+                                <strong>Video Slide</strong>
+                                <small>You can add video link from Youtube and Vimeo.</small>
+                            </span>
+                        </li>
+                        <li class="slide">
+                            <img src="img/content/2.jpg" alt="" data-thumbnailurl="img/content/10.jpg">
+                            <span class="text ani-right">
+                                <strong>Custom Thumbnail</strong>
+                                <small>Raxus Slider gets thumbnail urls automatically. But you can add your custom thumbnail url easily.</small>
+                            </span>
+                        </li>
+                        <li class="slide">
+                            <a href="http://dribbble.com/bqra"><img src="img/content/14.jpg" alt=""></a>
+                            <span class="text ani-bottom">
+                                <strong>Slide Link</strong>
+                                <small>Add link your slides.</small>
+                            </span>
+                        </li>
+                        <li class="slide fix-height">
+                            <img src="img/content/4.jpg" alt="" data-videourl="http://sc.chinaz.com/" />
+                        </li>
+                        <li class="slide">
+                            <img src="img/content/5.jpg" alt="">
+                        </li>
+                        <li class="slide fix-width">
+                            <img src="img/content/6.jpg" alt="">
+                            <div class="text">
+                                <strong>Scarface</strong>
+                            </div>
+                        </li>
+                        <li class="slide fix-width">
+                            <img src="img/content/3.jpg" alt="">
+                        </li>
+                        <li class="slide">
+                            <img alt="" data-thumbnailurl="img/content/10.jpg">
+                            <video width="650" height="330" controls>
+                                <source src="img/content/trailer.mp4" type="video/mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <img src="img/content/8.jpg" alt="">
+                        </li>
+                        <li class="slide">
+                            <img src="img/content/9.jpg" alt="">
+                        </li>
+                        <li class="slide">
+                            <img src="img/content/10.jpg" alt="">
+                        </li>
+                        <li class="slide">
+                            <img src="img/content/11.jpg" alt="">
+                            <span class="text">
+                                <strong>Star Wars</strong>
+                                <small>Star Wars is an American epic space opera franchise centered on a film series created by George Lucas. The film series, consisting of two trilogies, has spawned an extensive media franchise called the Expanded Universe including books, television series, computer and video games, and comic books.</small>
+                            </span>
+                        </li>
+                        <li class="slide">
+                            <img src="img/content/12.jpg" alt="">
+                        </li>
+                        <li class="slide fix-width">
+                            <img src="img/content/15.jpg" alt="">
+                            <span class="text">
+                                <strong>HER</strong>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="col-md-12 mt20 text-center b">
+
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="try-title">参数设置:</div>
+                            
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <div class="tl">缩略图的位置</div>
+                                <ul class="templates">
+                                    <li id="bot" class="selected">底部</li>
+                                    <li id="lef">左侧</li>
+                                    <li id="top">顶部</li>
+                                    <li id="rig">右侧</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="tl">滑动方向</div>
+                                <ul class="templates">
+                                    <li id="hor" class="selected">水平</li>
+                                    <li id="ver">垂直</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="tl">设置大小</div>
+                                <div class="dimension">
+                                    <input type="text" class="width" placeholder="宽度" />
+                                    <input type="text" class="height" placeholder="高度" />
+                                    <a href="javascript:;" class="button">确定</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html> 
