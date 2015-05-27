@@ -1,0 +1,26 @@
+Org.springframework.jdbc.datasource.embedded 包对嵌入式 Java 数据库引擎提供了支持。以本地方式提供支持的 HSQL、 H2 和Derby。详见官方文档。
+
+http://static.springsource.org/spring-framework/docs/3.0.0.M4/reference/html/ch12s08.html
+
+内建数据库的默认参数
+
+HSQL
+
+ConnectionUrl:"jdbc:hsqldb:mem:testdb"
+Driver name:"org.hsqldb.jdbcDriver"
+username:"sa"
+password:""
+
+H2
+
+ConnectionUrl:"jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1"
+Driver name:"org.h2.Driver"
+username:"sa"
+password:""
+
+Derby
+
+ConnectionUrl:"jdbc:derby:memory:testdb;create=true"
+Driver name:"org.apache.derby.jdbc.EmbeddedDriver"
+username:"sa"
+password:""
