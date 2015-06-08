@@ -1,0 +1,26 @@
+nav ul{width: 100%;background: #FFF;margin: 0 auto;}
+nav ul li{width: 25%;float: left;text-align: center;}
+nav ul li a{display: block;padding: 20px 0;border-left: 2px solid #f2f2f2;}
+nav ul li a i{display: inline-block;}
+nav ul li a p{text-align: center;color: #808080;line-height: 26px;}
+.icon_nav_1{background: url("../../../static/images/index/nav_1.png") no-repeat;background-size:cover;width:32px;height:28px;margin: 6px 0;}
+.icon_nav_2{background: url("../../../static/images/index/nav_2.png") no-repeat;background-size:cover;width:40px;height:32px;margin: 4px 0;}
+.icon_nav_3{background: url("../../../static/images/index/nav_3.png") no-repeat;background-size:cover;width:40px;height:38px;margin: 1px 0;}
+.icon_nav_4{background: url("../../../static/images/index/nav_4.png") no-repeat;background-size:cover;width:32px;height:32px;margin: 4px 0;}
+#footer_index{width: 100%;background: #f0f1f3;position: absolute;bottom: 0;z-index: 3;text-align: center;font-size: 36px;}
+#footer_index .index_directory ul{background: #FFF;margin: 0 20px;border-radius: 10px;}
+#footer_index .index_directory ul li{float: left;width: 33%;}
+#footer_index .index_directory ul li:first-child{width:34%;border-left:none;}
+#footer_index .index_directory ul li a{display: block;padding: 20px 0;width: 100%;border-left: 2px solid #f2f2f2;border-top: 2px solid #f2f2f2;}
+#footer_index .index_directory ul li:first-child a{border-left:none;}
+#footer_index .index_directory ul li a i{width: 38px;height: 38px;display: inline-block;}
+#footer_index .index_directory ul li a p{text-align: center;color: #000;font-size: 28px;line-height: 31px;}
+.div_right{border:5px solid #c8c7cd;width:23px;height:23px;vertical-align: middle;margin-top: -5px; display:inline-block;transform:rotate(45deg);-ms-transform:rotate(45deg);-moz-transform:rotate(45deg);-webkit-transform:rotate(45deg);-o-transform:rotate(45deg);border-bottom:none;border-left:none;}
+.allpro_list{background: #FFF;border-bottom: 2px solid #f2f2f2;}
+.allpro_list a{height: 86px;line-height: 88px;font-size: 30px;color: #000;display: block;}
+.allpro_list i{display: inline-block;margin: 0 20px;}
+.index_allpro .allpro_list i{vertical-align: middle;margin-top:-5px;}
+.allpro_list span{float: right;margin: 30px 40px 0;}
+.icon_list_1{background: url("../../../static/images/index/list_1.png") no-repeat;background-size:cover;width:35px;height:38px;margin: 1px 0;}
+.icon_list_2{background: url("../../../static/images/index/list_2.png") no-repeat;background-size:cover;width:38px;height:38px;margin: 1px 0;}
+.icon_list_3{background: url("../../../static/images/index/list_3.png") no-repeat;background-size:cover;width:38px;height:37px;margin: 1.5px 0;}

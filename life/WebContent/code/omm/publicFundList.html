@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640,target-densitydpi=320,user-scalable=no,maximum-scale=1.0" />
+	<title>基金列表</title>
+	<link rel="stylesheet" type="text/css" href="static/css/global.css">
+    <link rel="stylesheet" type="text/css" href="static/css/list/prolist.css">
+	<style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-start{clip:rect(0,auto,auto,0);-ms-zoom:1.0001;}.ng-animate-active{clip:rect(-1px,auto,auto,0);-ms-zoom:1;}</style>
+<style type="text/css">
+.scroller{
+	position: absolute;
+	top: 244px;
+	bottom: 5px;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+	background-color: #fff;
+}
+.pullDown, .pullUp {
+	background:#fff;
+	height:40px;
+	line-height:40px;
+	padding:5px 10px;
+	border-bottom:1px solid #ccc;
+	font-weight:bold;
+	font-size:14px;
+	color:#888;
+}
+.pullDown .pullDownIcon, .pullUp .pullUpIcon  {
+	display:block; float:left;
+	width:40px; height:40px;
+	background:url(static/images/common/pull-icon.png) 0 0 no-repeat;
+	-webkit-background-size:40px 80px; background-size:40px 80px;
+	-webkit-transition-property:-webkit-transform;
+	-webkit-transition-duration:250ms;	
+}
+.pullDown .pullDownIcon {
+	-webkit-transform:rotate(0deg) translateZ(0);
+}
+.pullUp .pullUpIcon  {
+	-webkit-transform:rotate(-180deg) translateZ(0);
+}
+
+.pullDown.flip .pullDownIcon {
+	-webkit-transform:rotate(-180deg) translateZ(0);
+}
+
+.pullUp.flip .pullUpIcon {
+	-webkit-transform:rotate(0deg) translateZ(0);
+}
+
+.pullDown.loading .pullDownIcon, .pullUp.loading .pullUpIcon {
+	background-position:0 100%;
+	-webkit-transform:rotate(0deg) translateZ(0);
+	-webkit-transition-duration:0ms;
+
+	-webkit-animation-name:loading;
+	-webkit-animation-duration:2s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-timing-function:linear;
+}
+
+@-webkit-keyframes loading {
+	from { -webkit-transform:rotate(0deg) translateZ(0); }
+	to { -webkit-transform:rotate(360deg) translateZ(0); }
+}
+.nav li a { width: 100px; }
+.listfund li.listfund_one .fund3{ width: 148px; }
+.listfund li span.pullUpIcon, .listfund li span.pullUpLabel{padding: 0;}
+</style>
+</head>
+<body ng-controller="PublicFundListController" ng-cloak>
+	<!-- <input type="hidden" ng-model="remnant" name="remnant" ng-init="remnant='2015-05-21 00:00:00'" value="2015-05-20" />
+	认购剩余<ex-timer end="remnant"></ng-timer>-->
+	
+	<div id="page">
+		<header>
+	        <div id="headerLeft">
+	            <a href="javascript:;" onClick="javascript:history.go(-1)" title="返回"><i class="header_return"></i>返回</a>
+	        </div>
+	        <h1>基金列表</h1>
+            <div id="headerRight">
+                <a href="search.html"><i class="icon_search_white"></i></a>
+            </div>
+		</header>
+	    <section id="section">
+	        <article>
+	            <nav>
+	                <ul class="nav">
+	                    <li><a href="javascript:void(0);" ng-class="{check: fund.status==1}" ng-click="fund.status=1; fund.switchTab();">推荐</a></li>
+	                    <li><a href="javascript:void(0);" ng-class="{check: fund.status==2}" ng-click="fund.status=2; fund.switchTab();">股票</a></li>
+	                    <li><a href="javascript:void(0);" ng-class="{check: fund.status==3}" ng-click="fund.status=3; fund.switchTab();">混合</a></li>
+	                    <li><a href="javascript:void(0);" ng-class="{check: fund.status==4}" ng-click="fund.status=4; fund.switchTab();">债券</a></li>
+	                    <li><a href="javascript:void(0);" ng-class="{check: fund.status==5}" ng-click="fund.status=5; fund.switchTab();">新发</a></li>
+	                    <li><a href="javascript:void(0);" ng-class="{check: fund.status==6}" ng-click="fund.status=6; fund.switchTab();">货币</a></li>
+	                </ul>
+	            </nav>
+	        </article>
+	        
+	        <!-- 推荐基金列表  -->
+	        <div class="prolistBox" ng-show="fund.status == 1">
+	            <article id="banner-box" ng-mouseenter="saveInterval()" ng-mouseleave="restoreInterval()">
+	                <!-- 图片 -->
+	                <ul id="banner">
+	                    <li><a href="#"><img src="static/images/pro/connection_disable.png" alt=""  class="swipein" /></a></li>
+	                    <li><a href="#"><img src="static/images/pro/risk.png" alt=""  class="swiperight"/></a></li>
+	                    <li><a href="#"><img src="static/images/pro/connection_disable.png" alt=""  class="swiperight"/></a></li>
+	                    <li><a href="#"><img src="static/images/pro/risk.png" alt=""  class="swiperight"/></a></li>
+	                </ul>
+	                <!-- 焦点 每增一张图需增一个span -->
+	                <div id="dot" class="dot">
+	                    <span ng-click="jump(0);" class="cur"></span>
+	                    <span ng-click="jump(1);"></span>
+	                    <span ng-click="jump(2);"></span>
+	                    <span ng-click="jump(3);"></span>
+	                </div>
+	            </article>
+	            <article class="prolist">
+	                <div class="prolist_title">
+	                    <div class="prolist_title_padding">
+	                        <p class="prolist_name">一个非常长的产品名字A<span class="prolsit_e"></span></p>
+	                        <p class="prolsit_paper">0000380</p>
+	                    </div>
+	                    <div class="prolsit_txt">力争大幅超越行业水平<span  class="prolsit_d">+20%</span></div>
+	                    <div class="prolist_box">
+	                        <div class="prolist_apply">
+	                            <span class="prolist_trading">
+	                                <p>起购金额</p>
+	                                <p class="prolsit_black">100,000,00元</p>
+	                            </span>
+	                            <span class="prolist_amount">
+	                                <p>开售日期</p>
+	                                <p class="prolsit_black">2015/4/09&nbsp;10:00</p>
+	                            </span>
+	                        </div>
+	                        <div class="prolsit_con">
+	                            <p class="prolsit_next">
+	                                <span class="free">认购费全免</span>
+	                                <span class="high">高收闪预期</span>
+	                                <span class="safe">亏损风险&lt;5%</span>
+	                            </p>
+	                        </div>
+	                    </div>
+	                </div>
+	            </article>
+	            <article class="prolist proListfund">
+	                <div class="prolist_title">
+	                    <div class="prolist_title_padding">
+	                        <p class="prolist_name">一个非常长的产品名字A<span class="prolsit_hot"></span></p>
+	                        <p class="prolsit_paper">0000380</p>
+	                    </div>
+	                    <div class="prolist_box2">
+	                        <div class="prolist_apply">
+	                            <span class="prolist_trading2">
+	                                <p>近3个月涨幅</p>
+	                                <p class="prolsit_d">35.8%</p>
+	                            </span>
+	                            <span class="prolist_process">
+	                                <p>距离发布时间</p>
+	                                <div class="time">
+	                                    <span id="t_h" class="t_h">0</span>
+	                                    <span class="prolsit_color80">时</span>
+	                                    <span id="t_m" class="t_m">0</span>
+	                                    <span class="prolsit_color80">分</span>
+	                                </div>
+	                            </span>
+	                        </div>
+	                    </div>
+	                    <div class="prolsit_con">
+	                            <p class="prolsit_next2">
+	                                <span>点评：绩优股</span>
+	                            </p>
+	                        </div>
+	                </div>
+	            </article>
+	            <article class="prolist">
+	                <div class="prolist_title">
+	                    <div class="prolist_title_padding">
+	                        <p class="prolist_name">一个非常长的产品名字A<span class="prolsit_e"></span></p>
+	                        <p class="prolsit_paper">0000380</p>
+	                    </div>
+	                    <div class="prolsit_txt">近7日年化收益率<span  class="prolsit_d">4.4843%</span></div>
+	                    <div class="prolist_box">
+	                        <div class="prolist_apply">
+	                            <span class="prolist_trading">
+	                                <p>起购金额</p>
+	                                <p class="prolsit_black">100,000,00元</p>
+	                            </span>
+	                            <span class="prolist_amount">
+	                                <p>开售日期</p>
+	                                <p class="prolsit_black">2015/4/09&nbsp;10:00</p>
+	                            </span>
+	                            <span class="prolist_imit">
+	                                <p>理财限期</p>
+	                                <p class="prolsit_black">3个月</p>
+	                            </span>
+	                        </div>
+	                        <div class="prolsit_con">
+	                            <p class="prolsit_next">
+	                                <span class="employe">员工专享</span>
+	                            </p>
+	                        </div>
+	                    </div>
+	                </div>
+	            </article>
+	        </div>
+	        <!-- /推荐基金列表  -->
+	        
+	        <!-- 股票型基金列表  -->
+	        <div class="prolistBox" ng-show="fund.status == 2">
+	            <ul class="listfund">
+	                <li class="listfund_one">
+	                    <span class="fund1">基金名称</span> 
+	                    <span class="fund2">最新净值</span>
+	                    <span class="fund3" ng-click="reverse=!reverse;order('+rrinsinglemonth', reverse)">日涨幅</span>
+	                </li>
+	            </ul>
+	            <div class="scroller" id="scroller1">
+		            <ul  class="listfund">
+		                <li ng-repeat="stockFund in stockPublicFunds" ng-click="fund.go(stockFund.product_no)" ex-render-complate="fund.scroller1">
+					        <i class="icon_sale">售</i>
+					        <!-- <i class="icon_stop">停</i>-->
+					        <span class="fund1">
+					            <p>{{stockFund.name}}</p>
+					            <p class="prolsit_gray">{{stockFund.product_no}}</p>
+					        </span>
+					        <span class="fund2">
+					            <p ng-show="stockFund.v_type != '货币型'">{{stockFund.fundnav}}</p>
+					            <p ng-show="stockFund.v_type == '货币型'">{{stockFund.daliy}}</p>
+					            <p class="prolsit_gray">15-05-14</p>
+					        </span>
+					        <span class="fund3"><p class=" prolsit_k">{{stockFund.rrinsinglemonth}}%</p></span>
+					    </li>
+					    <li class="last" ng-show="fund.directive == 1">
+							<div class="pullUp" ng-class="{loading: fund.loaded != 0}">
+								<span class="pullUpIcon"></span>
+								<span class="pullUpLabel" ng-show="fund.loaded == 0">向上拉动加载更多</span>
+								<span class="pullUpLabel" ng-show="fund.loaded != 0">加载中...</span>
+							</div>
+						</li>
+		            </ul>
+	            </div>
+	        </div>
+	        <!-- /股票型基金列表  -->
+	        
+	        <!-- 混合型基金列表  -->
+	        <div class="prolistBox" ng-show="fund.status == 3">
+	            <ul class="listfund">
+	                <li class="listfund_one">
+	                    <span class="fund1">基金名称</span> 
+	                    <span class="fund2">最新净值</span>
+	                    <span class="fund3" ng-click="reverse=!reverse;order('+rrinsinglemonth', reverse)">日涨幅</span>
+	                </li>
+	              </ul>
+	         	<div class="scroller"  id="scroller2">
+	         		<ul class="listfund">
+		                <li ng-repeat="stockFund in mixedPublicFunds" ng-click="fund.go(stockFund.product_no)" ex-render-complate="fund.scroller2">
+					        <i class="icon_sale">售</i>
+					        <!-- <i class="icon_stop">停</i>-->
+					        <span class="fund1">
+					            <p>{{stockFund.name}}</p>
+					            <p class="prolsit_gray">{{stockFund.product_no}}</p>
+					        </span>
+					        <span class="fund2">
+					            <p ng-show="stockFund.v_type != '货币型'">{{stockFund.fundnav}}</p>
+					            <p ng-show="stockFund.v_type == '货币型'">{{stockFund.daliy}}</p>
+					            <p class="prolsit_gray">15-05-14</p>
+					        </span>
+					        <span class="fund3"><p class=" prolsit_k">{{stockFund.rrinsinglemonth}}%</p></span>
+					    </li>
+				   	    <li class="last" ng-show="fund.directive == 1">
+							<div class="pullUp" ng-class="{loading: fund.loaded != 0}">
+								<span class="pullUpIcon"></span>
+								<span class="pullUpLabel" ng-show="fund.loaded == 0">向上拉动加载更多</span>
+								<span class="pullUpLabel" ng-show="fund.loaded != 0">加载中...</span>
+							</div>
+						</li>
+		            </ul>
+	            </div>
+	        </div>
+	        <!-- /股票型基金列表  -->
+	        
+	        <!-- 债券型基金列表  -->
+	        <div class="prolistBox" ng-show="fund.status == 4">
+	            <ul class="listfund">
+	                <li class="listfund_one">
+	                    <span class="fund1">基金名称</span> 
+	                    <span class="fund2">最新净值</span>
+	                    <span class="fund3" ng-click="reverse=!reverse;order('+rrinsinglemonth', reverse)">日涨幅</span>
+	                </li>
+	             </ul>
+	             <div class="scroller"  id="scroller3">
+		             <ul  class="listfund">
+		                <li ng-repeat="stockFund in bondPublicFunds" ng-click="fund.go(stockFund.product_no)" ex-render-complate="fund.scroller3">
+					        <i class="icon_sale">售</i>
+					        <!-- <i class="icon_stop">停</i>-->
+					        <span class="fund1">
+					            <p>{{stockFund.name}}</p>
+					            <p class="prolsit_gray">{{stockFund.product_no}}</p>
+					        </span>
+					        <span class="fund2">
+					            <p ng-show="stockFund.v_type != '货币型'">{{stockFund.fundnav}}</p>
+					            <p ng-show="stockFund.v_type == '货币型'">{{stockFund.daliy}}</p>
+					            <p class="prolsit_gray">15-05-14</p>
+					        </span>
+					        <span class="fund3"><p class=" prolsit_k">{{stockFund.rrinsinglemonth}}%</p></span>
+					    </li>
+					    <li class="last" ng-show="fund.directive == 1">
+							<div class="pullUp" ng-class="{loading: fund.loaded != 0}">
+								<span class="pullUpIcon"></span>
+								<span class="pullUpLabel" ng-show="fund.loaded == 0">向上拉动加载更多</span>
+								<span class="pullUpLabel" ng-show="fund.loaded != 0">加载中...</span>
+							</div>
+						</li>
+		            </ul>
+	            </div>
+	        </div>
+	        <!-- /债券型基金列表  -->
+	        
+	        <!-- 新发型基金列表  -->
+	        <div class="prolistBox" ng-show="fund.status == 5">
+	            <ul class="listfund">
+	                <li class="listfund_one">
+	                    <span class="fund1">基金名称</span> 
+	                    <span class="fund2">最新净值</span>
+	                    <span class="fund3" ng-click="reverse=!reverse;order('+rrinsinglemonth', reverse)">日涨幅</span>
+	                </li>
+	             </ul>
+	             <div class="scroller"  id="scroller4">
+		             <ul  class="listfund">
+		                <li ng-repeat="stockFund in newPublicFunds" ng-click="fund.goNew(stockFund.product_no)" ex-render-complate="fund.scroller4">
+					        <i class="icon_sale">售</i>
+					        <!-- <i class="icon_stop">停</i>-->
+					        <span class="fund1">
+					            <p>{{stockFund.name}}</p>
+					            <p class="prolsit_gray">{{stockFund.product_no}}</p>
+					        </span>
+					        <span class="fund2">
+					            <p ng-show="stockFund.v_type != '货币型'">{{stockFund.fundnav}}</p>
+					            <p ng-show="stockFund.v_type == '货币型'">{{stockFund.daliy}}</p>
+					            <p class="prolsit_gray">15-05-14</p>
+					        </span>
+					        <span class="fund3"><p class=" prolsit_k">{{stockFund.rrinsinglemonth}}%</p></span>
+					    </li>
+					    <li class="last" ng-show="fund.directive == 1">
+							<div class="pullUp" ng-class="{loading: fund.loaded != 0}">
+								<span class="pullUpIcon"></span>
+								<span class="pullUpLabel" ng-show="fund.loaded == 0">向上拉动加载更多</span>
+								<span class="pullUpLabel" ng-show="fund.loaded != 0">加载中...</span>
+							</div>
+						</li>
+	            	</ul>
+	            </div>
+	        </div>
+	        <!-- /新发型基金列表  -->
+	        
+	        <!-- 货币型基金列表  -->
+	        <div class="prolistBox" ng-show="fund.status == 6">
+	            <ul class="listfund">
+	                <li class="listfund_one">
+	                    <span class="fund1">基金名称</span> 
+	                    <span class="fund2">万份收益</span>
+	                    <span class="fund3" ng-click="reverse=!reverse;order('+rrinsinglemonth', reverse)">三月涨幅</span>
+	                </li>
+	             </ul>
+	             <div class="scroller"  id="scroller5">
+		             <ul  class="listfund">
+		                <li ng-repeat="stockFund in cashPublicFunds" ng-click="fund.goCash(stockFund.product_no)" ex-render-complate="fund.scroller5">
+					        <i class="icon_sale">售</i>
+					        <!-- <i class="icon_stop">停</i>-->
+					        <span class="fund1">
+					            <p>{{stockFund.name}}</p>
+					            <p class="prolsit_gray">{{stockFund.product_no}}</p>
+					        </span>
+					        <span class="fund2">
+					            <p ng-show="stockFund.v_type != '货币型'">{{stockFund.fundnav}}</p>
+					            <p ng-show="stockFund.v_type == '货币型'">{{stockFund.daliy}}</p>
+					            <p class="prolsit_gray">15-05-14</p>
+					        </span>
+					        <span class="fund3"><p class=" prolsit_k">{{stockFund.rrinsinglemonth}}%</p></span>
+					    </li>
+					    <li class="last" ng-show="fund.directive == 1">
+							<div class="pullUp" ng-class="{loading: fund.loaded != 0}">
+								<span class="pullUpIcon"></span>
+								<span class="pullUpLabel" ng-show="fund.loaded == 0">向上拉动加载更多</span>
+								<span class="pullUpLabel" ng-show="fund.loaded != 0">加载中...</span>
+							</div>
+						</li>
+	            	</ul>
+	            </div>
+	        </div>
+	        <!-- /货币型基金列表  -->
+	    </section>
+	</div>
+	
+	
+	<script type="text/javascript" src="./modules/lib/sea/sea-min.js"></script>
+	<script type="text/javascript" src="./modules/common/seaConf.js"></script>
+	<script type="text/javascript" src="./modules/controller/publicFundList.js"></script>
+</body>
+</html>

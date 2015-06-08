@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=640,target-densitydpi=320,user-scalable=no,maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" type="text/css" href="static/css/global.css">
+    <link rel="stylesheet" type="text/css" href="static/css/pro/pro.css">
+    <script src="modules/lib/sea/sea-min.js"></script>
+    <script src="modules/common/seaConf.js"></script>
+    <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-start{clip:rect(0,auto,auto,0);-ms-zoom:1.0001;}.ng-animate-active{clip:rect(-1px,auto,auto,0);-ms-zoom:1;}</style>
+</head>
+<body>
+<div id="page" ng-controller="cashSet" ng-cloak>
+	<header>
+        <div id="headerLeft">
+            <a href="javascript:;" onClick="javascript:history.go(-1)" title="返回"><i class="header_return"></i>返回</a>
+        </div>
+        <h1>设置</h1>
+        <div id="headerRight">
+            <a href="javascript:;" title="完成"></a>
+        </div>
+	</header>
+	
+	<!--预留设置开关-->
+	<section id="section_pro" ng-show="step1">
+		<article>
+            <div class="product_success_order cashbuycom">
+                <div class="com_list_order">
+                    <p>暂停现金宝<i class="order_icon" ng-init="isActive=false" ng-class="{true: 'order_icon1', false: 'order_icon'}[isActive]"  ng-click="isActive = !isActive"></i></p>
+                    <p ng-show="isActive">时间段<i class="pro_return"></i><span class="cash_list_money">长期</span></p>
+                    <span ng-show="isActive" class="cash_list_time">具体暂停时间：<span>2015/5/1</span>至<span>2015/7/29</span></span>
+                </div>
+                <div class="com_list_order"><p>资金预留设置<i class="pro_return"></i><span class="cash_list_money">1000元</span></p></div>
+            </div>     
+        </article>
+	</section>
+	
+	<!--资金预留设置-->
+	<section id="section_pro" ng-show="step2">
+		<article class="product_special">
+            <div class="product_special_title fundreseved_tit">
+                <div class="product_special_title_padding">
+                    <p class="product_special_name">现金宝</p>
+                    <p class="product_special_paper">0000380</p>
+                </div>
+            </div>
+        </article>
+        <article class="product_money">
+            <p class="product_money_capital fundresevedset">
+                <span>当前资金预留额度:<span class="capital">0.00元</span></span>
+            </p>
+            <p class="product_money_amount">
+                <span>预留额度</span>
+                <input class="input_money" type="tel" placeholder="请输入100元以上金额" />
+            </p>
+            <p class="product_money_capital fundresevedset">
+                <span>金额大写:<span class="capital">壹佰萬圆</span></span>
+            </p>
+        </article>
+        <article class="product_button">
+            <span class="product_button_yes">确认</span>
+            <span class="product_button_no">确认</span>
+        </article>
+        <article class="fundresevedset_txt">
+            <p>设定后，现金宝自动转入资金账户预留的额度。</p>
+        </article>
+	</section>
+	
+	<!--资金预留设置成功-->
+	<section id="section_pro" ng-show="step3">
+		<article>
+            <div class="product_success fundres_succ">
+                <div class="pro_success_submit"><img src="static/images/pro/submit.gif"></div>
+                <h3>资金预留设定成功</h3>
+                <p>预计4月25号开始生效，敬请留意</p>
+                <p class="pro_success_txt"><span>自计息日起，资金账户余额中超出1000的资金将自动购买现金宝。</span></p>
+            </div>    
+        </article>
+	</section>
+	
+	<footer>
+		<p>平安证券官方出品，资金安全有保障</p>
+	</footer>
+</div>
+<script type="text/javascript">
+     //测试环境，引入未压缩文件
+	 if (location.href.indexOf("?dev") > 0) {
+	     seajs.use("controller/cashSet", function(main) {
+	         main.init()
+	     });
+	 }
+	 //生产环境，引入压缩文件
+	 else {
+	     seajs.use("controller/cashSet", function(main) {
+	         main.init()
+	     });
+	 }
+</script>
+</body>
+</html>

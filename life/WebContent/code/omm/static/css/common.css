@@ -1,0 +1,135 @@
+/**
+ * 	已合并：reset.css,common.css,upaInCommon.css 
+ */
+/* reset.css begin */
+html {
+	color: #000;
+	background: #FFF;
+}
+body{
+	font-size:62.5%;
+	font-family: "冬青黑体简体中文";
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+	margin: 0;
+	padding: 0;
+}
+html,body{
+    -ms-content-zooming:none;
+    -ms-user-select:none;
+}
+@viewport {
+  width: 640px;
+}
+@-ms-viewport {
+  width: 640px;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+fieldset, img {
+	border: 0;
+}
+address, caption, cite, code, dfn, em, strong, th, var {
+	font-style: normal;
+	font-weight: normal;
+}
+li {
+	list-style: none;
+}
+caption, th {
+	text-align: left;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-weight: normal;
+}
+q:before, q:after {
+	content: '';
+}
+abbr, acronym {
+	border: 0;
+	font-variant: normal;
+}
+sup {
+	vertical-align: text-top;
+}
+sub {
+	vertical-align: text-bottom;
+}
+input, textarea, select {
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+}
+input, textarea, select {
+	font-size: 100%;
+}
+legend {
+	color: #000;
+}
+.clear {
+	clear: both;
+}
+
+/* reset.css  end */
+
+/* common.css begin */
+body {
+    font-size: 32px;
+    color: #333;
+    min-width: 640px;   
+	margin: 0 auto;
+    padding:0px;
+}
+a { text-decoration: none;color:#323333;}
+a:link { color: #333; }
+a:active { color: #333; }
+
+/* select控件 */
+.com_list_table {
+    display: table;
+    width: 100%;
+    height: 85px;
+    border-bottom: 1px solid #D0D0D0;
+}
+.com_list_table_lcell, .com_list_table_rcell {
+    display: table-cell;
+    vertical-align: middle;
+}
+.com_list_table_lcell {
+    padding-left: 37px;
+    width: 145px;
+}
+.com_list_table_rcell {
+    text-align: right;
+    padding-right: 23px;
+}
+.com_listfield {
+    position: relative;
+    background: url(../image/common/arrows_right.png) center right no-repeat;
+}
+.com_listfield .com_list_table_rcell {
+    padding-right: 65px;
+}
+.com_listfield_focus_nobg {
+    background: url(../image/common/arrows_down.png) center right no-repeat;
+}
+.com_listfield_focus {
+    background: url(../image/common/arrows_down.png) center right no-repeat #D1D1D1;
+}
+.com_listfield_select {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+
+
+
+
+

@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+<link rel="stylesheet" href="./bootstrap.css" />
+<style type="text/css">
+#scroller{
+	position: absolute;
+	top: 50px;
+	bottom: 5px;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+	font-family: 'Microsoft YaHei';
+}
+#wapper{ position: absolute; width: 100%; overflow: hidden; left: 0; top: 0;}
+#nav-scroller{position: absolute; width: 5000px; height: 100%;}
+.text-dark-golden { color: #9C7000 !important; }
+.text-red { color: #f00 !important; }
+#pullDown, #pullUp {
+	background:#fff;
+	height:40px;
+	line-height:40px;
+	padding:5px 10px;
+	border-bottom:1px solid #ccc;
+	font-weight:bold;
+	font-size:14px;
+	color:#888;
+}
+#pullDown .pullDownIcon, #pullUp .pullUpIcon  {
+	display:block; float:left;
+	width:40px; height:40px;
+	background:url(pull-icon@2x.png) 0 0 no-repeat;
+	-webkit-background-size:40px 80px; background-size:40px 80px;
+	-webkit-transition-property:-webkit-transform;
+	-webkit-transition-duration:250ms;	
+}
+#pullDown .pullDownIcon {
+	-webkit-transform:rotate(0deg) translateZ(0);
+}
+#pullUp .pullUpIcon  {
+	-webkit-transform:rotate(-180deg) translateZ(0);
+}
+
+#pullDown.flip .pullDownIcon {
+	-webkit-transform:rotate(-180deg) translateZ(0);
+}
+
+#pullUp.flip .pullUpIcon {
+	-webkit-transform:rotate(0deg) translateZ(0);
+}
+
+#pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
+	background-position:0 100%;
+	-webkit-transform:rotate(0deg) translateZ(0);
+	-webkit-transition-duration:0ms;
+
+	-webkit-animation-name:loading;
+	-webkit-animation-duration:2s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-timing-function:linear;
+}
+
+@-webkit-keyframes loading {
+	from { -webkit-transform:rotate(0deg) translateZ(0); }
+	to { -webkit-transform:rotate(360deg) translateZ(0); }
+}
+</style>	
+</head>
+<body>
+<div class="container">
+	<!-- <div class="row">
+		<div class="navbar navbar-inverse navbar-fixed-top" role="banner">
+			<div class="container" id="wapper">
+				<div class="nav-scroller">
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#">热销产品</a></li>
+						<li><a href="#">专享理财</a></li>
+						<li><a href="#">现金管理</a></li>
+						<li><a href="#">固定收益</a></li>
+						<li><a href="#">阳光私募</a></li>
+						<li><a href="#">股权投资</a></li>
+						<li><a href="#">海外投资</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>-->
+	<div class="row">
+		<div id="scroller">
+			<ul class="list-unstyled" style="margin: 0 10px;">
+				<li class="first hidden">
+					<div id="pullDown">
+						<span class="pullDownIcon"></span><span class="pullDownLabel">向下拉动加载更多</span>
+					</div>
+				</li>
+				<li>
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">泽沃1期</h3>
+					    <p class="text-dark-golden">投资经理经验丰富</p>
+					  </div>
+					  <div class="panel-body">
+					  	  <div class="row">
+						   	  <div class="col-xs-4 text-center">
+						   	  	<h4 class="text-red">39.1%</h4>
+						   	  	<p>近3个月的涨幅</p>
+						   	  </div>
+						   	  <div class="col-xs-4 text-center">
+							  	<h4>49.0%</h4>
+						   	  	<p>近6个月的涨幅</p>
+							  </div>
+						   	  <div class="col-xs-4 text-center">
+							  	<h4>60%</h4>
+						   	  	<p>融资率</p>
+							  </div>
+					  	  </div>
+					  </div>
+					</div>
+				</li>
+				<li>
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">大额盈</h3>
+					    <p class="text-dark-golden">大额现金理财，高收益，随时存取</p>
+					  </div>
+					  <div class="panel-body">
+					    <div class="row">
+						   	  <div class="col-xs-4 text-center">
+						   	  	<h4 class="text-red">7.4990</h4>
+						   	  	<p>七日年化收益(%)</p>
+						   	  </div>
+						   	  <div class="col-xs-4 text-center">
+							  	<h4>活期</h4>
+						   	  	<p>理财期限</p>
+							  </div>
+						   	  <div class="col-xs-4 text-center">
+							  	<h4>开放认购</h4>
+						   	  	<p>剩余认购期</p>
+							  </div>
+					  	  </div>
+					  </div>
+					</div>
+				</li>
+				<li>
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">黄金优选1期22号</h3>
+					    <p class="text-dark-golden">国内知名投顾淡水泉</p>
+					  </div>
+					  <div class="panel-body">
+					    <div class="row">
+						   	  <div class="col-xs-4 text-center">
+						   	  	<h4 class="text-red">11.1%</h4>
+						   	  	<p>近3个月的涨幅</p>
+						   	  </div>
+						   	  <div class="col-xs-4 text-center">
+							  	<h4>11.1%</h4>
+						   	  	<p>近6个月的涨幅</p>
+							  </div>
+						   	  <div class="col-xs-4 text-center">
+							  	<h4>60%</h4>
+						   	  	<p>融资率</p>
+							  </div>
+					  	  </div>
+					  </div>
+					</div>
+				</li>
+				<li>
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">泽沃1期</h3>
+					    <p class="text-dark-golden">投资经理经验丰富</p>
+					  </div>
+					  <div class="panel-body">
+					  	  <div class="row">
+						   	  <div class="col-xs-4 text-center">
+						   	  	<h4 class="text-red">39.1%</h4>
+						   	  	<p>近3个月的涨幅</p>
+						   	  </div>
+						   	  <div class="col-xs-4 text-center">
+							  	<h4>49.0%</h4>
+						   	  	<p>近6个月的涨幅</p>
+							  </div>
+						   	  <div class="col-xs-4 text-center">
+							  	<h4>60%</h4>
+						   	  	<p>融资率</p>
+							  </div>
+					  	  </div>
+					  </div>
+					</div>
+				</li>
+				<li>
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">大额盈</h3>
+					    <p class="text-dark-golden">大额现金理财，高收益，随时存取</p>
+					  </div>
+					  <div class="panel-body">
+					    <div class="row">
+						   	  <div class="col-xs-4 text-center">
+						   	  	<h4 class="text-red">7.4990</h4>
+						   	  	<p>七日年化收益(%)</p>
+						   	  </div>
+						   	  <div class="col-xs-4 text-center">
+							  	<h4>活期</h4>
+						   	  	<p>理财期限</p>
+							  </div>
+						   	  <div class="col-xs-4 text-center">
+							  	<h4>开放认购</h4>
+						   	  	<p>剩余认购期</p>
+							  </div>
+					  	  </div>
+					  </div>
+					</div>
+				</li>
+				<li>
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">黄金优选1期22号</h3>
+					    <p class="text-dark-golden">国内知名投顾淡水泉</p>
+					  </div>
+					  <div class="panel-body">
+					    <div class="row">
+						   	  <div class="col-xs-4 text-center">
+						   	  	<h4 class="text-red">11.1%</h4>
+						   	  	<p>近3个月的涨幅</p>
+						   	  </div>
+						   	  <div class="col-xs-4 text-center">
+							  	<h4>11.1%</h4>
+						   	  	<p>近6个月的涨幅</p>
+							  </div>
+						   	  <div class="col-xs-4 text-center">
+							  	<h4>60%</h4>
+						   	  	<p>融资率</p>
+							  </div>
+					  	  </div>
+					  </div>
+					</div>
+				</li>
+				<li>
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">泽沃1期</h3>
+					    <p class="text-dark-golden">投资经理经验丰富</p>
+					  </div>
+					  <div class="panel-body">
+					  	  <div class="row">
+						   	  <div class="col-xs-4 text-center">
+						   	  	<h4 class="text-red">39.1%</h4>
+						   	  	<p>近3个月的涨幅</p>
+						   	  </div>
+						   	  <div class="col-xs-4 text-center">
+							  	<h4>49.0%</h4>
+						   	  	<p>近6个月的涨幅</p>
+							  </div>
+						   	  <div class="col-xs-4 text-center">
+							  	<h4>60%</h4>
+						   	  	<p>融资率</p>
+							  </div>
+					  	  </div>
+					  </div>
+					</div>
+				</li>
+				<li>
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">大额盈</h3>
+					    <p class="text-dark-golden">大额现金理财，高收益，随时存取</p>
+					  </div>
+					  <div class="panel-body">
+					    <div class="row">
+						   	  <div class="col-xs-4 text-center">
+						   	  	<h4 class="text-red">7.4990</h4>
+						   	  	<p>七日年化收益(%)</p>
+						   	  </div>
+						   	  <div class="col-xs-4 text-center">
+							  	<h4>活期</h4>
+						   	  	<p>理财期限</p>
+							  </div>
+						   	  <div class="col-xs-4 text-center">
+							  	<h4>开放认购</h4>
+						   	  	<p>剩余认购期</p>
+							  </div>
+					  	  </div>
+					  </div>
+					</div>
+				</li>
+				<li>
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">黄金优选1期22号</h3>
+					    <p class="text-dark-golden">国内知名投顾淡水泉</p>
+					  </div>
+					  <div class="panel-body">
+					    <div class="row">
+						   	  <div class="col-xs-4 text-center">
+						   	  	<h4 class="text-red">11.1%</h4>
+						   	  	<p>近3个月的涨幅</p>
+						   	  </div>
+						   	  <div class="col-xs-4 text-center">
+							  	<h4>11.1%</h4>
+						   	  	<p>近6个月的涨幅</p>
+							  </div>
+						   	  <div class="col-xs-4 text-center">
+							  	<h4>60%</h4>
+						   	  	<p>融资率</p>
+							  </div>
+					  	  </div>
+					  </div>
+					</div>
+				</li>
+				<li class="last hidden">
+					<div id="pullUp">
+						<span class="pullUpIcon"></span><span class="pullUpLabel">向上拉动加载更多</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="../../modules/lib/sea/sea-min.js"></script>
+<script type="text/javascript" src="./iscroll-config.js"></script>
+<script type="text/javascript">
+seajs.use('./iscroll-refresh', function(){
+	
+});
+</script>
+<script id="item-template" type="template/javascript">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">泽沃1期</h3>
+    <p class="text-dark-golden">投资经理经验丰富</p>
+  </div>
+  <div class="panel-body">
+  	  <div class="row">
+	   	  <div class="col-xs-4 text-center">
+	   	  	<h4 class="text-red">39.1%</h4>
+	   	  	<p>近3个月的涨幅</p>
+	   	  </div>
+	   	  <div class="col-xs-4 text-center">
+		  	<h4>49.0%</h4>
+	   	  	<p>近6个月的涨幅</p>
+		  </div>
+	   	  <div class="col-xs-4 text-center">
+		  	<h4>60%</h4>
+	   	  	<p>融资率</p>
+		  </div>
+  	  </div>
+  </div>
+</div>
+</script>
+</body>
+</html>

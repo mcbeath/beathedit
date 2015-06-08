@@ -1,2 +1,4 @@
 ﻿WebContent/WEB-INF/classes/*
 /build
+/.settings
+/.classpath

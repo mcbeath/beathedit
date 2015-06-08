@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=640,target-densitydpi=320,user-scalable=no,maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" type="text/css" href="static/css/global.css">
+    <link rel="stylesheet" type="text/css" href="static/css/pro/pro.css">
+    <script src="modules/lib/sea/sea-min.js" data-main="./init"></script>
+    <script src="modules/common/seaConf.js"></script>
+</head>
+<body>
+<div id="page">
+	<header>
+        <div id="headerLeft" style="display:none;">
+            <a href="javascript:;" onClick="javascript:history.go(-1)" title="返回"><i class="header_return"></i>返回</a>
+        </div>
+        <h1>提交结果</h1>
+        <div id="headerRight">
+            <a href="javascript:;" title="完成">完成</a>
+        </div>
+	</header>
+	<section id="section_pro">
+		<article>
+            <div class="product_success">
+                <div class="pro_success_submit"><img src="static/images/pro/reservation.gif"></div>
+                <h3>预约提交成功</h3>
+                <p>我们将在开售前与您联系</p>
+            </div>
+            <div id="wrapId">
+	            <!--<div class="product_success_con">
+	                <p class="com_list_table">
+	                    <span class="com_list_table_lcell">预约基金</span>
+	                    <span class="com_list_table_rcell">一个非常长的产品名字A</span>
+	                </p>
+	                <p class="com_list_table">
+	                    <span class="com_list_table_lcell">基金代码</span>
+	                    <span class="com_list_table_rcell">000380</span>
+	                </p>
+	                <p class="com_list_table">
+	                    <span class="com_list_table_lcell">预约金额</span>
+	                    <span class="com_list_table_rcell">100，000，000，00元</span>
+	                </p>
+	                <p class="com_list_table">
+	                    <span class="com_list_table_lcell">预约单号</span>
+	                    <span class="com_list_table_rcell">2309109319301239021091</span>
+	                </p>
+	            </div>
+	            <div class="product_success_order">
+	                <div class="com_list_order"><p>查看我的基金<i class="pro_return"></i></p></div>
+	            </div>-->
+            </div>     
+        </article>
+	</section>
+	<footer>
+		<p>平安证券官方出品，资金安全有保障</p>
+	</footer>
+	
+<script id="temId" type="text/template">
+    <div class="product_success_con">
+        <p class="com_list_table">
+            <span class="com_list_table_lcell">预约基金</span>
+            <span class="com_list_table_rcell"><%=myorder_name%></span>
+        </p>
+        <p class="com_list_table">
+            <span class="com_list_table_lcell">基金代码</span>
+            <span class="com_list_table_rcell"><%=myorder_paper%></span>
+        </p>
+        <p class="com_list_table">
+            <span class="com_list_table_lcell">预约金额</span>
+            <span class="com_list_table_rcell"><%=money%>元</span>
+        </p>
+        <p class="com_list_table">
+            <span class="com_list_table_lcell">预约单号</span>
+            <span class="com_list_table_rcell"><%=carNumber%></span>
+        </p>
+    </div>
+    <div class="product_success_order">
+        <div class="com_list_order"><p>查看我的基金<i class="pro_return"></i></p></div>
+    </div>
+</script>
+
+<script>
+    seajs.use('controller/proReservatCom',function(main){
+        main.init();
+    })
+</script>
+</div>
+</body>
+</html>

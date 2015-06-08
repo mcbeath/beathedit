@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>选择转帐类型</title>
+    <meta name="viewport" content="width=640,target-densitydpi=320,user-scalable=no,maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" type="text/css" href="static/css/global.css">
+    <link rel="stylesheet" type="text/css" href="static/css/index/index.css">
+    <link rel="stylesheet" type="text/css" href="static/css/transfer/transfer.css">
+    <link rel="stylesheet" type="text/css" href="static/css/pro/pro.css">
+     <link rel="stylesheet" type="text/css" href="static/css/ccsk/cc-sk-2.3.4.css">
+    <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-start{clip:rect(0,auto,auto,0);-ms-zoom:1.0001;}.ng-animate-active{clip:rect(-1px,auto,auto,0);-ms-zoom:1;}</style>
+</head>
+<body ng-cloak>
+<div id="page" ng-controller="TransferController" ng-init="transfer.checkLogin();transfer.title='选择转账类型'">
+    <header>
+        <div id="headerLeft">
+            <a href="javascript: void(0);" ng-click="transfer.back()" title="返回"><i class="header_return"></i>返回</a>
+        </div>
+        <h1>{{transfer.title}}</h1>
+    </header>
+    <section id="section" ng-init="transfer.getAccountList()">
+        <article class="index_allpro" ng-show="transfer.status == 1">
+            <div class="allpro_list">
+                <a href="javascript: void(0);" ng-click="transfer.switchType(1)">
+                    <i class="icon_list_1"></i>银行卡转证券<span class="div_right"></span>
+                </a>
+            </div>
+            <div class="allpro_list" >
+                <a href="javascript: void(0);" ng-click="transfer.switchType(2)">
+                    <i class="icon_list_2"></i>证券转银行卡<span class="div_right"></span>
+                </a>
+            </div>
+            <div class="allpro_list listmargin">
+                <a href="javascript: void(0);" ng-click="transfer.switchType(3)">
+                    <i class="icon_list_3"></i>账户间转账<span class="div_right"></span>
+                </a>
+            </div>
+        </article>
+        
+        <section ng-show="transfer.status == 2"><!-- 银行卡转证券 -->
+        	<form name="bankToSecurityForm" novalidate>
+	            <article class="tra_bank">
+	                <div class="bank_sec">
+	                    <a href="javascript: void(0);" ng-click="transfer.go(5);transfer.title='选择银行卡'">
+	                        <img ng-src="{{transfer.defaultBank.url}}" />
+	                        <p>{{transfer.defaultBank.bank_name}}</p>
+	                        <span>尾号<span>{{transfer.defaultBank.eacc}}</span></span>
+	                        <i class="div_right"></i>
+	                    </a>
+	                </div>
+	            </article>
+	            <article class="product_money">
+	                <p class="product_money_balance trabet">
+	                    <i class="icon_account"></i>
+	                    <span>转入账户:<span class="balance"><span ng-show="transfer.defaultBank.ismain == '1'">主账户</span><span ng-show="transfer.defaultBank.ismain == '0'">辅账户</span>-{{transfer.defaultBank.account}}</span>
+	                </p>
+	                <p class="product_money_amount">
+	                    <span>转账金额</span>
+	                    <input class="input_money" type="number" min="0.01" max="{{transfer.bankToSecurityMaxAmount}}" required ex-range-validator name="bankToSecurityAmount" ng-model="transfer.amount" placeholder="请输入100,000,000以内金额" />
+	                </p>
+	                <p class="product_money_capital" ng-show="transfer.amount && transfer.amount>0">
+	                    <span>金额大写:<span class="capital">{{transfer.formatAmount}}元</span></span>
+	                </p>
+	            </article>
+	            <article class="product_money">
+	                <p class="product_money_amount">
+	                    <span>银行密码</span>
+	                    <input class="input_money" id="bankPassword" maxlength="6" width="365" height="84" initialize="transfer.bankPasswordInitialize" keyboard-type="Normal" security-url="{{CLOUD_SECURITY_KEYBOARD}}" ex-cloud-keyboard ng-model="transfer.bankToSecurity.password" type="password" placeholder="请输入您的银行密码" />
+	                </p>
+	            </article>
+	            <article class="product_button">
+	                <a href="javascript: void(0);" ng-click="bankToSecurityForm.$valid && transfer.bankSecurityTransfer()" ng-class="{product_button_yes: bankToSecurityForm.$valid, product_button_no: bankToSecurityForm.$invalid}">确认</a>
+	            </article>
+            </form>
+        </section>
+        <section ng-show="transfer.status == 3"><!-- 证券转银行卡 -->
+        	<form name="securityToBankForm">
+	            <article class="product_money">
+	                <p class="product_money_balance trabet">
+	                    <i class="icon_account"></i>
+	                    <span>转出账户:<span class="balance"><span ng-show="transfer.defaultBank.ismain == '1'">主账户</span><span ng-show="transfer.defaultBank.ismain == '0'">辅账户</span>-{{transfer.defaultBank.account}}</span>
+	                    <a href="javascript: void(0);" class="tra_return" ng-click="transfer.go(7);transfer.title='选择转出帐户'"></a>
+	                </p>
+	                <p class="product_money_amount">
+	                    <span>转账金额</span>
+	                    <input class="input_money" type="number" min="0.01" max="{{transfer.securityToBankMaxAmount}}" required ex-range-validator ng-model="transfer.amount" placeholder="请输入100,000,000以内金额" />
+	                </p>
+	                <p class="product_money_capital" ng-show="transfer.amount && transfer.amount>0">
+	                    <span>金额大写:<span class="capital">{{transfer.formatAmount}}元</span></span>
+	                </p>
+	            </article>
+	            <article class="tra_bank">
+	                <div class="bank_sec">
+	                    <a href="javascript: void(0);">
+	                        <img ng-src="{{transfer.defaultBank.url}}" />
+	                        <p>{{transfer.defaultBank.bank_name}}</p>
+	                        <span>尾号<span>{{transfer.defaultBank.eacc}}</span></span>
+	                    </a>
+	                </div>
+	            </article>
+	            <article>
+	                <p class="trasecbank">
+	                    <i></i>
+	                    <span>预计2小时内到账</span>
+	                </p>
+	            </article>
+	            <article class="product_money">
+	                <p class="product_money_amount">
+	                    <span>资金密码</span>
+	                    <input class="input_money" id="securityPassword" maxlength="6" width="365" initialize="transfer.securityPasswordInitialize" height="70" keyboard-type="Normal" security-url="{{CLOUD_SECURITY_KEYBOARD}}" ex-cloud-keyboard ng-model="transfer.securityToBank.password" type="password" placeholder="请输入您的资金密码" />
+	                </p>
+	            </article>
+	            <article class="product_button">
+	                <a href="javascript: void(0);" ng-click="securityToBankForm.$valid && transfer.bankSecurityTransfer()" ng-class="{product_button_yes: securityToBankForm.$valid, product_button_no: securityToBankForm.$invalid}">确认</a>
+	            </article>
+            </form>
+        </section>
+        
+        <!-- 账户间转账 -->
+        <section ng-show="transfer.status == 4">
+        	<form name="accountToAccountForm">
+	            <article class="product_money">
+	                <p class="product_money_balance trabet">
+	                    <i class="icon_account"></i>
+	                    <span>转出账户:<span class="balance"><span ng-show="transfer.fromAccount.ismain == '1'">主账户</span><span ng-show="transfer.fromAccount.ismain == '0'">辅账户</span>-{{transfer.fromAccount.account}}</span>
+	                    <a href="javascript: void(0);" class="tra_return" ng-click="transfer.go(7);transfer.title='选择转出帐户'"></a>
+	                </p> 
+	            </article>
+	            <article class="product_money">
+	                <p class="product_money_balance trabet">
+	                    <i class="icon_account"></i>
+	                    <span>转入账户:<span class="balance"><span ng-show="transfer.toAccount.ismain == '1'">主账户</span><span ng-show="transfer.toAccount.ismain == '0'">辅账户</span>-{{transfer.toAccount.account}}</span>
+	                    <a href="javascript: void(0);" class="tra_return" ng-click="transfer.go(6);transfer.title='选择转入帐户'"></a>
+	                </p>
+	                <p class="product_money_amount">
+	                    <span>转账金额</span>
+	                    <input class="input_money" type="number" min="0.01" max="100000000" required ex-range-validator ng-model="transfer.amount" placeholder="请输入100,000,000以内金额" />
+	                </p>
+	                <p class="product_money_capital" ng-show="transfer.amount && transfer.amount>0">
+	                    <span>金额大写:<span class="capital">{{transfer.formatAmount}}元</span></span>
+	                </p>
+	            </article>
+	            <article class="product_button">
+	                <a href="javascript: void(0);" ng-click="accountToAccountForm.$valid && transfer.accountToAccount()" ng-class="{product_button_yes: accountToAccountForm.$valid, product_button_no: accountToAccountForm.$invalid}">确认</a>
+	            </article>
+            </form>
+        </section> 
+        <!-- /账户间转账 -->
+         
+         <!-- 选择银行卡 -->
+        <section ng-show="transfer.status == 5">
+            <article class="tra_bank">
+                <div class="bank_card" ng-repeat="bank in transfer.banklist">
+                    <a href="javascript: void(0)" ng-click="transfer.chooseBank(bank.account);">{{bank.bank_name}}<i class="">{{bank.ext_acc}}</i></a>
+                </div>
+            </article>
+        </section>
+        <!-- /选择银行卡 -->
+        
+        <!-- 选择转入账户 -->
+        <section ng-show="transfer.status == 6">
+            <article class="tra_bank">
+                <div class="bank_card_acc" ng-repeat="bank in transfer.banklist">
+                    <a ng-if="bank.account != transfer.toAccount.account" href="javascript: void(0)" ng-click="transfer.chooseAccount(bank.account, 'to')">
+                        <p class="colorb"><span ng-show="bank.ismain == '1'">主账户</span><span ng-show="bank.ismain == '0'">辅账户</span>-{{bank.account}}</p>
+                        <span class="colorb">可用余额<span>{{bank.available}}</span>元</span>
+                    </a>
+                </div>
+            </article>
+        </section>
+        <!-- /选择转入账户 -->
+        
+        <!-- 选择转出账户 -->
+        <section ng-show="transfer.status == 7">
+            <article class="tra_bank">
+                <div class="bank_card_acc" ng-repeat="bank in transfer.banklist">
+                    <a ng-if="bank.account != transfer.fromAccount.account || transfer.type == '2'" href="javascript: void(0)" ng-click="bank.draw_avl_cash>0 && transfer.chooseAccount(bank.account, 'from')">
+                        <p class="colorb"><span ng-show="bank.ismain == '1'">主账户</span><span ng-show="bank.ismain == '0'">辅账户</span>-{{bank.account}}</p>
+                        <span class="colorb">可用余额<span>{{bank.available}}</span>元</span>
+                        <i ng-if="bank.draw_avl_cash<=0">不可用</i>
+                    </a>
+                </div>
+            </article>
+        </section>
+        <!-- /选择转出账户 -->
+        
+        <!-- 转帐成功 -->
+        <section  ng-show="transfer.status == 9">
+			<article>
+	            <div class="product_success">
+	                <div class="pro_success_submit"><img src="static/images/pro/submit.gif"></div>
+	                <h3>转账成功</h3>
+	                <p ng-show="transfer.type != 1">预计2小时到账</p>
+	                <p ng-show="transfer.type == 1">转入：{{transfer.amount}}元</p>
+	            </div>
+	            <div class="product_success_con">
+	                <p class="com_list_table">
+	                    <span class="com_list_table_lcell">转入账户</span>
+	                    <span class="com_list_table_rcell"><span class="balance"><span ng-show="transfer.toAccount.ismain == '1'">主账户</span><span ng-show="transfer.toAccount.ismain == '0'">辅账户</span>-{{transfer.toAccount.account}}</span>
+	                </p>
+	                <p class="com_list_table" ng-show="transfer.type == 2">
+	                    <span class="com_list_table_lcell">转至银行卡</span>
+	                    <span class="com_list_table_rcell"><span class="balance">{{transfer.fromAccount.bank_name}}-尾号{{transfer.fromAccount.selaccount}}</span>
+	                </p>
+	                <p class="com_list_table" ng-show="transfer.type != 1">
+	                    <span class="com_list_table_lcell">转出账户</span>
+	                    <span class="com_list_table_rcell"><span class="balance"><span ng-show="transfer.fromAccount.ismain == '1'">主账户</span><span ng-show="transfer.fromAccount.ismain == '0'">辅账户</span>-{{transfer.fromAccount.account}}</span>
+	                </p>
+	                <p class="com_list_table">
+	                    <span class="com_list_table_lcell">转账金额</span>
+	                    <span class="com_list_table_rcell">{{transfer.amount}}元</span>
+	                </p>
+	                <p class="com_list_table">
+	                    <span class="com_list_table_lcell">转出时间</span>
+	                    <span class="com_list_table_rcell">{{transfer.finishDatetime|date:'yyyy/MM/dd HH:mm'}}</span>
+	                </p>
+	            </div>
+	            <div class="product_success_order">
+	                <div class="com_list_order" style="padding-left: 30px;"><a href="transferType.html">查看我的资金账户<i class="pro_return"></i></a></div>
+	            </div>     
+	        </article>
+		</section>
+	     <!-- /转帐成功 -->  
+        
+        <!-- 转帐失败 -->
+        <div class="product_money_box" ng-show="transfer.message">
+	        <div class="product_bbox"></div>
+	        <div class="product_mbox">
+	            <img src="static/images/tra/attention_dialog.png" style="height:140px;"/>
+	            <p>转账不成功</p>
+	            <p class="product_money_txt">{{transfer.message}}</p>
+	            <p><a href="javascript: void(0);" ng-click="transfer.message=null" class="product_box_btn">好的</a></p>
+	        </div>
+	    </div>
+	     <!-- /转帐失败 -->   
+        
+        <article ng-show="transfer.status==1 && transfer.iszzdate">
+            <p class="trantimeps">
+                <i class="icon_nav_1"></i>
+                <span>银证转账开放时间段为:09:00-16:00，目前可正常转账</span>
+            </p>
+        </article>
+        
+        <footer ng-show="transfer.status==9" style="position: relative;">   
+            <p>平安证券官方出品，资金安全有保障</p>
+        </footer>
+    </section>
+    
+    
+</div>
+<script type="text/javascript" src="./modules/lib/sea/sea-min.js"></script>
+<script type="text/javascript" src="./modules/common/seaConf.js"></script>
+<script type="text/javascript">seajs.use('./modules/controller/transfer.js', function(transfer){ transfer.run(); });</script>
+</body>
+</html>

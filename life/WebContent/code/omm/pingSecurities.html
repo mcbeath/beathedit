@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>平安证券稳健资本一号</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=640,target-densitydpi=320,user-scalable=no,maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" type="text/css" href="static/css/global.css">
+    <link rel="stylesheet" type="text/css" href="static/css/fund/fund.css">
+    <script src="modules/lib/sea/sea-min.js"></script>
+    <script src="modules/common/seaConf.js"></script>
+    <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-start{clip:rect(0,auto,auto,0);-ms-zoom:1.0001;}.ng-animate-active{clip:rect(-1px,auto,auto,0);-ms-zoom:1;}</style>
+</head>
+<body id="body_fund" id="ow">
+<div id="page" ng-controller="gaoduan" ng-cloak>
+	<header>
+        <div id="headerLeft">
+            <a href="javascript:;" onClick="javascript:history.go(-1)" title="返回"><i class="header_return"></i>返回</a>
+        </div>
+        <div class="header_h2h3">
+            <h2>{{h.name}}</h2>
+            <h3>{{h.product_no}}</h3>
+        </div>
+        <div id="headerRight">
+            <a href="javascript:;" title="完成"></a>
+        </div>
+	</header>
+    <section id="section">
+        <article>
+          <div class="pingsecur_listbox" ng-controller="specialHead">
+              <div class="currrecy_title2">
+                <div class="currrecy_box">
+                    <span>
+                        <p class="prolsit_d">{{g.expect}}</p>
+                        <p class="prolsit_p">预期收益率</p>
+                    </span>
+                    <span class="currrecy_cessVal" ng-hide="true">
+                        <p>已完成<span class="prolsit_80">50%</span></p>
+                        <div class="process">
+                            <div class="processVal"></div>
+                        </div>
+                    </span>
+                </div>
+                <div class="currrecy_box2">
+                    <span ng-show="g.minimum_cost">
+                        <p>起投金额</p>
+                        <p class="prolsit_m">{{g.minimum_cost}}{{g.monenyname}}</p>
+                    </span>
+                    <span ng-show="g.max">
+                        <p>产品期限</p>
+                        <p class="prolsit_c">{{g.max}}</p>
+                    </span>
+                    <span ng-show="g.zeng">
+                        <p>递增金额</p>
+                        <p class="prolsit_c">{{g.zeng}}</p>
+                    </span>
+                    <span ng-show="g.fenpei">
+                        <p>分配方式</p>
+                        <p class="prolsit_c">{{g.fenpei}}</p>
+                    </span>
+                    <span ng-show="g.riskName">
+                        <p>产品风险</p>
+                        <p class="prolsit_c">{{g.riskName}}</p>
+                    </span>
+                    <span ng-show="g.open_sale" style="width:auto">
+                        <p>申购时间</p>
+                        <p class="prolsit_c">{{g.open_sale}} - {{g.ane_end_time}}</p>
+                    </span>
+                </div>
+                <div class="pingsecur_t" ng-hide="true">
+                     <p>产品时间轴</p>
+                     <div class="pingsecur_time">
+                        <ul>
+                          <li>
+                            <span><i class="sell"></i></span>
+                            <span><i class="sell"></i></span>
+                            <span><i class="sell"></i></span>
+                            <span><i class="sell"></i></span>
+                            <div class="sell_bg"></div>
+                          </li>
+                          <li>
+                            <span>起售日</span>
+                            <span>截止日</span>
+                            <span>起息日</span>
+                            <span>分配日</span>
+                          </li>
+                          <li>
+                            <span>2015/5/12</span>
+                            <span>2015/5/12</span>
+                            <span>2015/5/12</span>
+                            <span>2015/5/12</span>
+                          </li>
+                        </ul>
+                     </div>
+                </div>
+              </div>
+          </div>
+        </article>
+        <article ng-hide="true">
+            <div class="currency_rate">
+                <div class="currency_con">
+                    <p class="currency_next">
+                        <span><i class="sell"></i>费率</span>
+                        <span><i class="sell"></i>补贴</span>
+                        <span><i class="sell"></i>体验金</span>
+                    </p>
+                </div>
+                <p class="currency_fri">壕友送红包，最高100万体验金</p>
+            </div>
+        </article>
+        <article class="fund_tab">
+            <ul class="fund_tab_6 clr">
+                <li ng-class="{width_33:w33,width_50:w50}" ng-click="fundTab = 1" ng-show="w33"><a href="javascript:;" ng-class="{tab_check:fundTab == 1}">业绩表现</a></li>
+                <li ng-class="{width_33:w33,width_50:w50}" ng-click="fundTab = 2" ><a href="javascript:;" ng-class="{tab_check:fundTab == 2}">交易规则</a></li>
+                <li ng-class="{width_33:w33,width_50:w50}" ng-click="fundTab = 3"><a href="javascript:;" ng-class="{tab_check:fundTab == 3}">产品详情</a></li>
+            </ul>
+        </article>
+        <div class="fund_tab_box_4" ng-show="fundTab == 2">
+            <div class="fund_tab_trading fund_tab_80">
+                <h1>购买规则</h1>
+                <table cellspacing="0" cellpadding="0" class="fund_tab_trading_rules">
+                    <tr>
+                        <td>起投金额</td>
+                        <td>100元</td>
+                    </tr>
+                    <tr>
+                        <td>收益计算规则</td>
+                        <td>收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则</td>
+                    </tr>
+                </table>
+                <h1>赎回规则</h1>
+                <table cellspacing="0" cellpadding="0" class="fund_tab_trading_rules">
+                    <tr>
+                        <td>起投金额</td>
+                        <td>100元</td>
+                    </tr>
+                    <tr>
+                        <td>收益计算规则</td>
+                        <td>收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="fund_tab_box_4" ng-show="fundTab == 1">
+        	<div ng-controller="chartCtrl">
+				<div chart-view id="showID" style="width:100%;height:400px;"></div>
+			</div>
+        </div>
+        <div class="fund_tab_box_4" ng-show="fundTab == 3">
+        	<div id='funContains'></div>
+            <div fund-content expander-con='content'></div>
+            <!-- <ul class="fund_tab_5 clr">
+                <li><a href="javascript:;"  class="tab_check_4"><i class="icon_offon_11" id="ou_1"></i><p>基本资料</p></a></li>
+                <li><a href="javascript:;"><i class="icon_offon_2" id="ou_2"></i><p>交易规则</p></a></li>
+            </ul>
+            <div class="fund_tab_box_5">
+                <div class="fund_tab_introduce fund_tab_178">
+                  <table cellspacing="0" cellpadding="0" class="fund_tab_trading_rules">
+                    <tr>
+                        <td>产品名称</td>
+                        <td>平安汇通平安汇通平安汇通平安汇通平安汇通平安汇通平安汇通平安汇通平安汇通平安汇通</td>
+                    </tr>
+                    <tr>
+                        <td>产品类型</td>
+                        <td>非保</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>开放期</p>
+                            <p>()</p>
+                        </td>
+                        <td>平安汇通平安汇通平安汇通平安汇通平安汇通平安汇通平安汇通平安汇通平安汇通平安汇通</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>开放期</p>
+                            <p>()</p>
+                        </td>
+                        <td>平安汇通平安汇通平安汇通平安汇通平安汇通平安汇通平安汇通平安汇通平安汇通平安汇通</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>开放期</p>
+                            <p>()</p>
+                        </td>
+                        <td>平安汇通平安汇通平安汇通平安汇通平安汇通平安汇通平安汇通平安汇通平安汇通平安汇通</td>
+                    </tr>
+                  </table>
+                </div>
+            </div>
+            <div class="fund_tab_box_5 none">
+                <div class="fund_tab_trading fund_tab_178">
+                    <h1>购买规则</h1>
+                    <table cellspacing="0" cellpadding="0" class="fund_tab_trading_rules">
+                        <tr>
+                            <td>起投金额</td>
+                            <td>100元</td>
+                        </tr>
+                        <tr>
+                            <td>收益计算规则</td>
+                            <td>收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则</td>
+                        </tr>
+                    </table>
+                    <h1>赎回规则</h1>
+                    <table cellspacing="0" cellpadding="0" class="fund_tab_trading_rules">
+                        <tr>
+                            <td>起投金额</td>
+                            <td>100元</td>
+                        </tr>
+                        <tr>
+                            <td>收益计算规则</td>
+                            <td>收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则</td>
+                        </tr>
+                    </table>
+                </div>
+            </div> -->
+            
+        </div>
+    </section>
+    <div id="footer_fixed" ng-controller="isBuy">
+        <a href="#" ng-class="{true: 'button_buy', false: 'button_buy2'}[isActive]" ng-click="buy()">认购</a>
+    </div>
+</div>
+<script type="text/javascript">
+     //测试环境，引入未压缩文件
+	 if (location.href.indexOf("?dev") > 0) {
+	     seajs.use("controller/pingSecurities", function(main) {
+	         main.init()
+	     });
+	 }
+	 //生产环境，引入压缩文件
+	 else {
+	     seajs.use("controller/pingSecurities", function(main) {
+	         main.init()
+	     });
+	 }
+ </script>
+</body>
+</html>

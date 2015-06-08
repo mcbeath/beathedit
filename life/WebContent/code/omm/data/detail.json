@@ -1,0 +1,15 @@
+{
+	"data":{
+		"title":"华夏精选基金A",
+		"num":"1.4545",
+		"ratio":"0.82",
+		"date":"05/02",
+		"typeText":"申购中",
+		"type":"1",	
+		"scale":"1000",
+		"thirdInCome":"7.5",
+		"yearInCome":"8.5"
+	},
+	"msg":"获取数据成功",
+	"resultCode":0
+}

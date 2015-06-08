@@ -1,0 +1,358 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=640,target-densitydpi=320,user-scalable=no,maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" type="text/css" href="static/css/global.css">
+    <link rel="stylesheet" type="text/css" href="static/css/fund/fund.css">
+    <script src="modules/lib/sea/sea-min.js"></script>
+    <script src="modules/common/seaConf.js"></script>
+    <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-start{clip:rect(0,auto,auto,0);-ms-zoom:1.0001;}.ng-animate-active{clip:rect(-1px,auto,auto,0);-ms-zoom:1;}</style>
+</head>
+<body id="body_fund" id="ow">
+<div id="page" ng-controller="detailCtrl" ng-cloak>
+	<header>
+        <div id="headerLeft">
+            <a href="javascript:;" onClick="javascript:history.go(-1)" title="返回"><i class="header_return"></i>返回</a>
+        </div>
+        <div class="header_h2h3">
+            <h2>{{h.name}}</h2>
+            <h3>{{h.product_no}}</h3>
+        </div>
+	</header>
+	
+	<section id="section" style="padding-bottom:50px;">
+		<!--基金详情头部-->
+        <div class="currrecy_title2" ng-controller="fundHeader">
+            <div class="currrecy_box">
+                <span>
+                    <p class="prolsit_d">{{d.fundnav}}</p>
+                    <p class="prolsit_b">最新净值</p>
+                </span>
+                <span ng-show="h.growth">
+                    <p class="prolsit_f">{{h.growth}}%</p>
+                    <p class="prolsit_b">{{h.time}}涨幅</p>
+                </span>
+                <span>
+                    <p  class="prolsit_e"></p>
+                </span>
+            </div>
+            <div class="currrecy_box2">
+                <span>
+                    <p>近三月收益</p>
+                    <p class="prolsit_m">{{s.rrinsinglemonth}}%</p>
+                </span>
+                <span>
+                    <p>近一年收益</p>
+                    <p class="prolsit_m">{{s.rrinsingleyear}}%</p>
+                </span>
+                <span>
+                    <p>类型</p>
+                    <p class="prolsit_c">{{d.risk}}</p>
+                </span>
+                <span>
+                    <p>产品风险</p>
+                    <p class="prolsit_c">{{d.riskName}}</p>
+                </span>
+            </div>
+            <div class="currrecy_box2">
+                <span>
+                    <p>起始资金</p>
+                    <p class="prolsit_m">{{d.minimum_cost}}</p>
+                </span>
+                <span>
+                    <p>累计净值</p>
+                    <p class="prolsit_m">{{d.accumulatedunitnv}}</p>
+                </span>
+                <span>
+                    <p>成立时间</p>
+                    <p class="prolsit_c">{{d.found_date}}</p>
+                </span>
+            </div>
+        </div>
+        
+        <!--offer内容-->
+        <article ng-hide="true">
+            <div class="currency_rate">
+                <div class="currency_con">
+                    <p class="currency_next">
+                        <span class="sell">费率</span>
+                        <span class="sell">补贴</span>
+                        <span class="sell">体验金</span>
+                    </p>
+                </div>
+                <p class="currency_fri">壕友送红包，最高100万体验金</p>
+            </div>
+        </article>
+        
+        <section id="mainView">
+        	<!--整体tab切换-->
+	        <article class="fund_tab" ng-controller="TabsCtrl">
+	            <ul class="fund_tab_3 clr">
+	                <li ng-repeat="tab in tabs" ng-click="onClickTab(tab)">
+			            <a href="javascript:;" ng-class="{tab_check:isActiveTab(tab.url)}" >{{tab.title}}</a>
+			        </li>
+	            </ul>
+	            <div id="mainView">
+		        	 <div ng-include="currentTab"></div>
+		        </div>
+	        </article>
+	        
+	        <!--专家点评：暂时不实现（one.tpl.html）-->
+	        
+	        <!--业绩表现-->
+	        <script type="text/ng-template" id="two.tpl.html">
+		        <article class="fund_tab_box">
+		            <div>
+		            	<div ng-controller="chartCtrl">
+							<div chart-view id="showID" style="width:100%;height:400px;"></div>
+						</div>
+		            </div>
+		            <div class="fund_worth" ng-controller="historyList">
+		                <h1 class="clr"><a href="#" style="float: left">历史净值</a></h1>
+		                <table cellspacing="0" cellpadding="0">
+		                    <tr>
+		                        <td>日期</td>
+		                        <td>单位净值</td>
+		                        <td>累计净值</td>
+		                        <td>日增长率</td>
+		                    </tr>
+		                    <tr ng-repeat = "item in h">
+		                    	<td>{{item.infopubldate}}</td>
+		                        <td>{{item.unitnv}}</td>
+		                        <td>{{item.accumulatedunitnv}}</td>
+		                        <td>{{item.nvdailygrowthrate}}%</td>
+		                    </tr>	
+		                </table>
+		            </div>
+		        </article>
+		    </script> 
+		    
+		    <!--产品详情-->
+			<script type="text/ng-template" id="three.tpl.html">   
+		        <article class="fund_tab_box" ng-controller="tabCtr2">
+		            <ul class="fund_tab_4 clr"> 
+		                <li ng-click="vm.activeTab = 1"><a href="javascript:;" ng-class="{'tab_check_4':vm.activeTab == 1}"><i ng-class="{true: 'icon_offon_11', false: 'icon_offon_1'}[vm.activeTab == 1]" id="ou_1"></i><p>基本资料</p></a></li>
+		                <li ng-click="vm.activeTab = 2"><a href="javascript:;" ng-class="{'tab_check_4':vm.activeTab == 2}"><i ng-class="{true: 'icon_offon_22', false: 'icon_offon_2'}[vm.activeTab == 2]" id="ou_2"></i><p>交易规则</p></a></li>
+		                <li ng-click="vm.activeTab = 3"><a href="javascript:;" ng-class="{'tab_check_4':vm.activeTab == 3}"><i ng-class="{true: 'icon_offon_33', false: 'icon_offon_3'}[vm.activeTab == 3]" id="ou_3"></i><p>资产配置</p></a></li>
+		                <li ng-click="vm.activeTab = 4"><a href="javascript:;" ng-class="{'tab_check_4':vm.activeTab == 4}"><i ng-class="{true: 'icon_offon_44', false: 'icon_offon_4'}[vm.activeTab == 4]" id="ou_4"></i><p>分红配置</p></a></li>
+		            </ul>
+		            <div class="fund_tab_box_4">
+		                <div class="fund_tab_introduce" ng-controller="survey" ng-show="vm.activeTab == 1">
+		                    <h1>基金简介</h1>
+		                    <table cellspacing="0" cellpadding="0">
+		                        <tr>
+		                            <td>基金名称</td>
+		                            <td>{{v.chiname}}</td>
+		                        </tr>
+		                        <tr>
+		                            <td>投资风格</td>
+		                            <td>{{v.fengge}}</td>
+		                        </tr>
+		                        <tr>
+		                            <td>管理公司</td>
+		                            <td>{{v.chiname}}</td>
+		                        </tr>
+		                        <tr>
+		                            <td>基金规模</td>
+		                            <td>{{v.foundedsize}}</td>
+		                        </tr>
+		                        <tr>
+		                            <td>成立时间</td>
+		                            <td></td>
+		                        </tr>
+		                    </table>
+		                    <h1>业绩比较基准</h1>
+		                    <p>{{v.performancebenchmark}}</p>
+		                    <h1>投资目标</h1>
+		                    <p>{{v.investtarget}}</p>
+		                    <h1>投资方向</h1>
+		                    <p>{{v.investorientation}}</p>
+		                    <h1>风险收益特征</h1>
+		                    <p>{{v.riskreturncharacter}}</p>
+		                    <h1 ng-hide="true">基金经理</h1>
+		                    <table cellspacing="0" cellpadding="0" ng-hide="true">
+		                        <tr>
+		                            <td>基金经理</td>
+		                            <td>高某某</td>
+		                        </tr>
+		                        <tr>
+		                            <td>学历</td>
+		                            <td>硕士</td>
+		                        </tr>
+		                        <tr>
+		                            <td>管理经理</td>
+		                            <td>10年</td>
+		                        </tr>
+		                        <tr>
+		                            <td>个人简介</td>
+		                            <td>简介文字</td>
+		                        </tr>
+		                    </table>
+		                    <h1 ng-hide="true">本基金管理业绩</h1>
+		                    <table cellspacing="0" cellpadding="0" class="table_results" ng-hide="true">
+		                        <tr>
+		                            <td>上任时间</td>
+		                            <td>任职回报</td>
+		                            <td>同期泸深300</td>
+		                        </tr>
+		                        <tr>
+		                            <td>2015/5/04</td>
+		                            <td>1.8762</td>
+		                            <td>1.8762</td>
+		                        </tr>
+		                        <tr>
+		                            <td>2015/5/04</td>
+		                            <td>1.8762</td>
+		                            <td>1.8762</td>
+		                        </tr>
+		                        <tr>
+		                            <td>2015/5/04</td>
+		                            <td>1.8762</td>
+		                            <td>1.8762</td>
+		                        </tr>
+		                    </table>
+		                </div>
+		            </div>
+		            <div class="fund_tab_box_4" ng-show="vm.activeTab == 2">
+		                <div class="fund_tab_trading">
+		                    <h1>购买规则</h1>
+		                    <table cellspacing="0" cellpadding="0" class="fund_tab_trading_rules">
+		                        <tr>
+		                            <td>起投金额</td>
+		                            <td>100元</td>
+		                        </tr>
+		                        <tr>
+		                            <td>收益计算规则</td>
+		                            <td>收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则</td>
+		                        </tr>
+		                    </table>
+		                    <h1>赎回规则</h1>
+		                    <table cellspacing="0" cellpadding="0" class="fund_tab_trading_rules">
+		                        <tr>
+		                            <td>起投金额</td>
+		                            <td>100元</td>
+		                        </tr>
+		                        <tr>
+		                            <td>收益计算规则</td>
+		                            <td>收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则收益计算规则</td>
+		                        </tr>
+		                    </table>
+		                    <h1>前端认购费</h1>
+		                    <table cellspacing="0" cellpadding="0" class="fund_tab_trading_cost">
+		                        <tr>
+		                            <td>购买金额《50万</td>
+		                            <td>1.2%</td>
+		                        </tr>
+		                        <tr>
+		                            <td>购买金额《50万</td>
+		                            <td>1.2%</td>
+		                        </tr>
+		                        <tr>
+		                            <td>购买金额《50万</td>
+		                            <td>1.2%</td>
+		                        </tr>
+		                        <tr>
+		                            <td>购买金额《50万</td>
+		                            <td>1.2%</td>
+		                        </tr>
+		                    </table>
+		                    <h1>前端自购费</h1>
+		                    <table cellspacing="0" cellpadding="0" class="fund_tab_trading_cost">
+		                        <tr>
+		                            <td>购买金额《50万</td>
+		                            <td>1.2%</td>
+		                        </tr>
+		                        <tr>
+		                            <td>购买金额《50万</td>
+		                            <td><i>12%</i>1.2%</td>
+		                        </tr>
+		                        <tr>
+		                            <td>购买金额《50万</td>
+		                            <td><i>12%</i>1.2%</td>
+		                        </tr>
+		                        <tr>
+		                            <td>购买金额《50万</td>
+		                            <td><i>12%</i>1.2%</td>
+		                        </tr>
+		                    </table>
+		                    <h1>赎回费</h1>
+		                    <table cellspacing="0" cellpadding="0" class="fund_tab_trading_cost">
+		                        <tr>
+		                            <td>购买金额《50万</td>
+		                            <td>1.2%</td>
+		                        </tr>
+		                        <tr>
+		                            <td>购买金额《50万</td>
+		                            <td>1.2%</td>
+		                        </tr>
+		                        <tr>
+		                            <td>购买金额《50万</td>
+		                            <td>1.2%</td>
+		                        </tr>
+		                        <tr>
+		                            <td>购买金额《50万</td>
+		                            <td>1.2%</td>
+		                        </tr>
+		                    </table>
+		                </div>
+		            </div>
+		            <div class="fund_tab_box_4" ng-show="vm.activeTab == 3">
+		                <p style="text-align: center;">没有任何内容</p>
+		            </div>
+		            <div class="fund_tab_box_4" ng-show="vm.activeTab == 4">
+		                <div class="fund_tab_Share" ng-controller="bonus">
+		                    <table cellspacing="0" cellpadding="0">
+		                        <tr>
+		                            <td>年份</td>
+		                            <td>权益登记日</td>
+		                            <td>除息日</td>
+		                            <td>每份分红</td>
+		                            <td>分红发放日</td>
+		                        </tr>
+		                        <tr ng-repeat="it in l">
+		                            <td>{{it.redate | date:'yyyy'}}</td>
+		                            <td>{{it.redate}}</td>
+		                            <td>{{it.exrightdate}}</td>
+		                            <td>
+		                                <p>派现金</p>
+		                                <p>{{it.actualratioaftertax}}元</p>
+		                            </td>
+		                            <td>{{it.executedate}}</td>
+		                        </tr>
+		                    </table>
+		                </div>
+		            </div>
+		        </article>
+		    </script>
+		    
+		</section> 
+		   
+	</section>
+	
+	<div id="footer_fixed" ng-controller="isLogin">
+		 <a ng-href="proRed.html?productNo={{pro.id}}" class="button_redeem" ng-show="redeem">赎回</a>
+         <a href="javascript:void(0)" class="{{isActive}}"  ng-click="buy()">认购</a><!-- ng-class="{true: 'button_buy', false: 'button_buy2'}[isActive]" -->
+    </div>
+	
+</div>
+<script type="text/javascript">
+     //测试环境，引入未压缩文件
+	 if (location.href.indexOf("?dev") > 0) {
+	     seajs.use("controller/details", function(main) {
+	         main.init()
+	     });
+	 }
+	 //生产环境，引入压缩文件
+	 else {
+	     seajs.use("controller/details", function(main) {
+	         main.init()
+	     });
+	 }
+ </script>
+</body>
+</html>

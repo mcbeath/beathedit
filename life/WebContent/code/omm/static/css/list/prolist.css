@@ -1,0 +1,116 @@
+/*专项理财产品*/	
+.prolist{background: #FFFFFF;position: relative;margin-top: 40px;border-bottom: 2px solid #cbcbcb;}
+.prolist .prolist_img{position: absolute;top:0;left: 0;}
+.prolist .prolist_title{padding: 8px 0 ;display: inline-block;width: 100%;}
+.prolist .prolist_title_padding{padding:20px 40px;}
+.prolist .prolist_name{font-size: 30px;}
+.prolist .prolsit_paper{font-size: 24px;color: #b9bbbb;margin-top: 6px;}
+.prolist .prolsit_paper_2{font-size: 24px;color: #b9bbbb;margin-left: 6px;}
+.prolist .prolist_name span{float: right;width:128px;height: 32px;margin-top: 10px;margin-right: -20px;}
+.prolsit_d{color: #ff8000;font-size: 48px;font-weight: bold;}
+.prolsit_k{color: #d5000d;font-size: 30px;}
+.prolsit_txt,.prolsit_txt2{line-height: 80px;background: #f7f7f7;padding:0 40px;color: #808080;}
+.prolsit_txt span{margin-left:40px;display: inline-block;}
+.prolsit_txt2 .prolist_apply{padding: 11px 0 14px 0;border-bottom:none;position: relative;color: #b9bbbb;}
+.prolist_box{padding:0 20px;}
+.prolist_box2{padding:0 20px;background: #f7f7f7;border-bottom: 1px solid #ddd;}
+.prolist_apply{border-bottom: 1px dashed #989898;position: relative;color: #b9bbbb;padding:20px;}
+.prolist_apply span{display: inline-block;}
+.prolsit_con{padding:0 20px;color: #808080;}
+.prolsit_con p{line-height: 73px;}
+.prolsit_next span{padding-left: 38px;display: inline-block;margin-right: 15px;}
+.prolsit_next2 span{display: inline-block;padding-left: 20px;}
+/*共用*/
+.prolist_box2 .prolist_apply,.prolist_box3 .prolist_apply{border-bottom: none;}
+.prolist_news .prolist_apply,.prolistcash .prolist_apply,.proListfund .prolist_apply,.proListspecial .prolist_apply{border:none;}
+.prolsit_w{color: #046de5;margin-top: 10px;}
+.prolsit_org{color: #e70412;}
+.prolsit_black{color: #000;margin-top: 10px;}
+.prolsit_gray{color: #B9BBBB;}
+.prolsit_b{color: #e30412;}
+.prolsit_a{color:#d5000d;}
+.prolsit_f{color: #f00;margin-top: 10px;}
+.prolsit_80{color: #808080;margin: -2px 0 0 8px;vertical-align: top;}
+.prolsit_red{color: #e20411;}
+.prolist_trading{width: 196px;}
+.prolist_amount{width: 207px;}
+.prolsit_imit{width: 157px;}
+.prolist_trading2{width: 270px;}
+.prolist_amount2{width: 270px;}
+.prolsit_e{background: url("../../../static/images/list/lable_warmup.png") no-repeat;}
+.prolsit_stop{background: url("../../../static/images/list/lable_stop.png") no-repeat;}
+.prolsit_hot{background: url("../../../static/images/list/lable_hot.png") no-repeat;}
+.prolsit_next .free{background: url("../../../static/images/list/sellingpoint_free.png") no-repeat left center;}
+.prolsit_next .high{background: url("../../../static/images/list/sellingpoint_high.png") no-repeat left center;}
+.prolsit_next .safe{background: url("../../../static/images/list/sellingpoint_safe.png") no-repeat left center;}
+.prolsit_next .employe{background: url("../../../static/images/list/sellingpoint_employee.png") no-repeat left center;}
+/*基金列表*/
+.listfund{background: #f6f6f6;}
+.listfund li.listfund_one{line-height: 64px;height: 64px;background: #5a5a5a !important;color: #fff;padding:0;}
+.listfund li.listfund_one span{display: inline-block;text-align: center;padding:0;}
+.listfund li.listfund_one .fund1{width:269px;border-right: 2px solid #747474;}
+.listfund li.listfund_one .fund2{width:168px;border-right: 2px solid #747474;}
+.listfund li.listfund_one .fund3{width:199px;position: relative;top:0px;}
+.listfund li {position: relative;font-size: 0;}
+.listfund li span{padding:16px 0;display: inline-block;font-size: 24px;}
+.listfund li p{padding-left: 40px;overflow: hidden; word-break: keep-all; text-overflow: ellipsis; white-space: nowrap;}
+.listfund li .fund1{width:269px;border-right: 2px solid #f4f4f4;}
+.listfund li .fund2{width:168px;border-right: 2px solid #f4f4f4;}
+.listfund li .fund3{width: 199px;position: relative;top: -15px;}
+.listfund li .fund1 p{padding-left:70px;} 
+.listfund li:nth-child(even){background: #f0f0f0;}
+.listfund li i{width: 39px;height: 38px;line-height: 38px;text-align: center;display: inline-block;position: absolute;top:25px;left:10px;}
+.icon_sale{background: url("../../../static/images/list/stock_selling.png") no-repeat;}
+.icon_stop{background: url("../../../static/images/list/stock_stop.png") no-repeat;}
+/*新发基金*/
+.prolistNew{border: none;}
+.prolist_head{float:left;margin-right: 25px;margin-top: 8px;}
+.manager{padding: 16px 20px 2px 20px;border-top: 1px dashed #989898;}
+.prolist_manager p{line-height: 37px;}
+.prolist_news .prolist_apply{border-top: 1px dashed #989898;}
+.prolistcash{border-bottom: 8px solid #e30412;}
+/* 选项卡 */
+.nav,.nav_2,.nav_3{background: #FFF;height: 88px;text-align: center;width: 640px;}
+.nav li,.nav_2 li,.nav_3 li{float: left;}
+.nav li a,.nav_2 li a,.nav_3 li a{color: #b9bbbb;display: inline-block;height: 80px;line-height: 88px;}
+.nav li a{width: 116px;}
+.nav_2 li a{width: 190px;}
+.nav_3 li a{width: 213px;}
+.nav_3 li:first-child a{width: 214px;}
+.check{color: #535353 !important;border-bottom: 8px solid #e30412;}
+.filter{height: 80px;line-height: 88px;width: 70px;display: inline-block;float:right;text-align: center;}
+.icon_tab_mask{background: url("../../../static/images/list/tab_mask.png") no-repeat;background-size: cover;width: 60px;height: 89px;display: inline-block;vertical-align: middle;float: right;}
+.icon_filter{background: url("../../../static/images/list/filter.png") no-repeat;background-size: cover;width: 32px;height: 32px;display: inline-block;vertical-align: middle;}
+/* 倒计时 */
+.time{font-size: 0;}
+.time span{font-size: 24px;display: inline-block;}
+.prolsit_color80,.t_d,.t_h,.t_m{color: #808080;margin: 10px 10px 10px 0;}
+.t_d,.t_h,.t_m{vertical-align: bottom;display: inline-block;width: 48px;height: 48px;line-height: 48px;text-align: center;font-size: 36px !important;color: #666;border-radius: 5px;background: -webkit-gradient(linear, 0% 0%, 0% 100%,from(#f0f0f0), to(#b6b6b6));background:-moz-linear-gradient(linear, 0% 0%, 0% 100%,from(#f0f0f0), to(#b6b6b6));}
+.prolist_count_down{padding: 20px 40px;background: #F7F7F7;}
+.prolist_count_down p{color: #B9BBBB;}
+.prolist_process{width: 43%;}
+.prolist_process p{}
+.process{width: 260px;height: 16px;display: inline-block;background: #d8d8d8;position: relative;}
+.processVal{width: 50%;height: 16px;background: #e67e17;position: absolute;left: 0;}
+/* 隐藏导航 */
+.filter_ul{display: none;position: absolute;right: 0;top: 88px;z-index: 2;background: #FFF;box-shadow:-1px 1px 2px 1px #f2f2f2;}
+.filter_ul li{border-top: 2px solid #f2f2f2;text-align: center;}
+.filter_ul li:first-child{border: none;}
+.filter_ul li a{font-size: 24px;color: #999;display: block;width: 220px;height: 70px;line-height: 72px;}
+.filter_ul li a:first-child{height: 72px;}
+.filter_ul li a.filter_check{color: #FFF;background: #FF8000;}
+/* 现金理财 */
+.prolist_box3{background: #f7f7f7;border-bottom: 1px solid #ddd;}
+.prolist_box3 .prolist_apply{padding: 20px 0;}
+.prolist_cash{text-align: center;}
+.prolist_cash li{float: left;width: 33%;}
+.prolist_cash li:first-child{width: 34%;}
+.prolist_cash li i{margin-right: 10px;margin-top: -4px;}
+.prolist_cash li span{font-size: 28px;color: #8f4a4d;}
+.prolist_cash li p{text-align: center;font-size: 22px;margin-top: 6px;color: #c6a191;}
+.prolsit_earn{padding: 20px 40px;}
+.prolsit_earnings{text-align: left;}
+.prolsit_earnings li{float: left;width: 21%;}
+.prolsit_earnings li:first-child{width: 37%;}
+.prolsit_earnings li span{font-size: 24px;color: #b9bbbb;}
+.prolsit_earnings li p{font-size: 22px;color: #000;margin-top: 6px;}

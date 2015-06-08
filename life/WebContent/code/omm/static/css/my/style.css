@@ -1,0 +1,54 @@
+.product_special{background: #FFFFFF;position: relative;}
+.product_special .product_special_img{position: absolute;top:0;left: 0;}
+.product_special .product_special_title{padding: 8px 0;}
+.product_special .product_special_title_padding{padding: 15px 0;}
+.product_special .product_special_title p{padding:0 60px;}
+.product_special .product_special_name{font-size: 30px;}
+.product_special .product_special_paper{font-size: 24px;color: #b9bbbb;margin-top: 6px;}
+.product_special_draw,.product_special_draw_2{border-top: 2px solid #f2f2f2;}
+.product_special_draw_2{padding:15px 60px 11px !important;}
+
+
+.product_money,.product_agreement{background: #FFFFFF;margin: 40px 20px 0 20px;border-radius: 5px;}
+.product_redemption{background: #FFFFFF;margin: 0px 20px;border-radius: 5px;}
+.product_money_balance,.product_money_capital,.product_money_preferential,.product_money_error,.product_money_earnings,.product_special_draw{height: 62px;line-height: 62px;}
+.product_money_amount,.product_agreement{height: 88px;line-height: 88px;}
+.product_money p,.product_redemption p{border-top: 2px solid #f2f2f2;padding: 0 20px;}
+.product_money p:first-child,.product_redemption p:first-child{border-top: 2px solid #FFFFFF;}
+.balance,.amount,.capital,.earnings{margin-left: 15px;}
+.product_money_balance span{color: #b9bbbb;}
+.product_money_balance a{float: right;color: #4595e6;}
+.product_money_amount span{font-size: 30px;}
+.product_money_error span{color: #F00;font-size: 24px;}
+.product_money_capital span,.product_money_earnings span,.product_special_draw span,.product_special_draw_2 span{color: #b9bbbb;}
+.product_money_earnings span.earnings{color: #ff0000;}
+.product_money_preferential i.amount{text-decoration: line-through;}
+.product_money_preferential span{color: #b9bbbb;}
+.product_money_preferential span.preferential{color: #000000;margin-left: 8px;position: relative;top:-2px;}
+.product_money_preferential a{float: right;color: #4595e6;}
+.input_money{height: 84px;line-height: 84px;font-size: 30px;margin-left: 25px;border: none;width: 360px;}
+.input_money::-webkit-input-placeholder{color:#dae0e6;font-size: 24px;}
+.product_agreement p{padding: 0 20px;}
+.product_agreement p a{color: #4595e6;}
+.product_agreement p a.checkbox{float: right;}
+.product_button{height: 80px;line-height: 80px;margin: 40px 20px 0 20px;font-size: 36px;text-align: center;}
+.product_button .product_button_yes{background: #e20411;color: #FFFFFF;display: block;}
+.product_button .product_button_no{background: #dadada;color: #b3b3b3;display: block;}
+.product_time{padding:20px;font-size:24px;color:#b9bbbb;line-height: 64px;}
+span.draw_span{margin-left: 50px;}
+/* 图标 */
+.icon_account{background: url("../../images/common/account.png") no-repeat;background-size:cover;width:24px;height:20px;display:inline-block;vertical-align: middle;margin-top: -3px;}
+.icon_error{background: url("../../images/common/error.png") no-repeat;background-size:cover;width:24px;height:24px;display:inline-block;vertical-align: middle;margin: -7px 10px 0 0;}
+.icon_calendar{background: url("../../images/common/calendar.png") no-repeat;background-size:cover;width:24px;height:24px;display:inline-block;vertical-align: middle;margin: -3px 11px 0;}
+.icon_clear{background: url("../../images/common/clear.png") no-repeat;background-size:cover;width:40px;height:40px;display:inline-block;vertical-align: middle;margin-top: -5px;}
+.icon_enable{background: url("../../images/common/chekbox_enable.png") no-repeat;background-size:cover;width:40px;height:40px;display:inline-block;vertical-align: middle;}
+.icon_checked{background: url("../../images/common/chekbox_checked.png") no-repeat;background-size:cover;width:40px;height:40px;display:inline-block;vertical-align: middle;}
+/* 遮罩层 */
+.product_bbox{position: absolute;top:0px;left: 0px;background: #000;opacity: 0.4;width:100%;height: 100%;z-index: 1;}
+.product_mbox{background: #fff;position: fixed;text-align: center;top:25%;margin: 0 6%;width:76%;z-index: 2;padding: 30px 40px 30px 40px;}
+.product_mbox p{text-align: center;font-size: 30px;line-height: 63px;}
+.product_mbox p.product_money_txt{font-size: 24px;}
+.product_mbox p .product_box_btn{background:url("../../images/common/btn_bg.png") repeat-x;border:1px solid #cccccc;display:inline-block;width:100%;}
+.product_mbox p span a{font-size: 24px;color: #4595e6;display: inline-block;}
+.product_mbox p span{width: 49%;display: inline-block;text-align: left;margin-top: 10px;}
+.product_mbox p span:last-child{text-align: right;}

@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=640,target-densitydpi=320,user-scalable=no,maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" type="text/css" href="static/css/global.css">
+    <link rel="stylesheet" type="text/css" href="static/css/pro/pro.css">
+    <style>
+    	#product_succ{
+    		padding-top: 93px;
+			padding-bottom: 64px;
+    	}
+    </style>
+    <script src="modules/lib/sea/sea-min.js" data-main="./init"></script>
+    <script src="modules/common/seaConf.js"></script>
+</head>
+<body>
+<div id="page">
+	<header>
+        <div id="headerLeft">
+            <a href="javascript:;" onClick="javascript:history.go(-1)" title="返回"><i class="header_return"></i>返回</a>
+        </div>
+        <h1>产品赎回</h1>
+        <div id="headerRight" style="display:none;">
+            <a href="javascript:;" onClick="javascript:window.location = 'myOrder.html'" title="完成">完成</a>
+        </div>
+	</header>
+	<section id="section_pro" >
+		<div id="proRed">
+			
+		</div>
+	    <article class="product_redemption">
+	        <p class="product_money_balance">
+	            <span>赎回全部:<span class="balance" id="getAllMoney"></span>份</span>
+	            <a href="javascript:;" class="checkbox">
+	                <i class="icon_enable" id="radiobox"></i>
+	                <!--<i class="icon_checked"></i>-->
+	            </a>
+	        </p>
+	        <p class="product_money_amount">
+	            <span>赎回份额</span>
+	            <input class="input_money" id="moneyRed" type="tel" placeholder="" />
+	        </p>
+	        <p class="product_money_error" id="moneyError" style="display:none;">
+	            <span><i class="icon_error"></i>余额超出最大赎回金额，请修改后再赎回</span>
+	        </p>
+	        <p class="product_money_capital">
+	            <span>大写金额:<span class="capital" id="capital"></span></span>
+	        </p>
+	        <p class="product_money_preferential">
+	            <!--<span>含手续费:<span class="capital">0.05</span>元</span>-->
+	            <!--<a href="javascript:;">费率说明</a>-->
+	        </p>
+	    </article>
+		
+        <article class="product_redeem">
+             <p>如果巨额赎回，请选择其它的赎回申请的处理方式</p>         
+             <div class="redeem_button" id="redButton" data-choose="1">
+                 <p class="open" data-value="1"><span>顺延赎回 ：下一个基金开始日继续进行赎回</span><i></i></p>
+                 <p data-value="0"><span>取消赎回 ：对其余赎回申请撤消</span><i></i></p>
+             </div>
+        </article>
+	    <article class="product_button">
+	        <span class="product_button_yes" id="buttonYes" style="display:none;">确认赎回</span>
+	        <span class="product_button_no" id="buttonNo">确认赎回</span>
+	    </article>
+	</section>
+	<section id="product_succ" style="display:none;">
+		<article>
+            <div class="product_success">
+                <div class="pro_success_submit"><img src="static/images/pro/redeem.gif"></div>
+                <h3>赎回申请提交成功</h3>
+                <p id="getTime"><!--预计4月25日到账，敬请留意--></p>
+            </div>
+             <div class="product_success_con" id="successCon"></div>
+            <div class="product_success_order">
+                <div class="com_list_order"><a href="javascript:;" onClick="javascript:window.location = 'myorder.html'"><p>查看我的赎回<i class="pro_return"></i></p></a></div>
+            </div>     
+        </article>
+	</section>
+	<footer>
+		<p>平安证券官方出品，资金安全有保障</p>
+	</footer>
+</div>
+
+<script id="proRedTem" type="text/template">
+	<article class="product_special">
+        <img src="static/images/common/product_lable_stable.png" class="product_special_img" />
+        <div class="product_special_title">
+            <div class="product_special_title_padding">
+                <p class="product_special_name"><%=fund_name%></p>
+                <p class="product_special_paper"><%=fund_code%></p>
+            </div>
+        </div>
+    </article>
+    <!--<article class="product_time">
+        <p>
+            <i class="icon_calendar"></i>到账时间：预计到账
+        </p>
+    </article>-->
+</script>
+
+<script>
+    seajs.use('controller/proRed',function(main){
+        main.init();
+    })
+</script>
+<!---<input class="input_money" id="moneyRed2" value="321" />-->
+</body>
+</html>

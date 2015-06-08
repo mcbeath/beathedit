@@ -1,0 +1,455 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=640,target-densitydpi=320,user-scalable=no,maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" type="text/css" href="static/css/global.css">
+    <link rel="stylesheet" type="text/css" href="static/css/index/index.css">
+    <link rel="stylesheet" type="text/css" href="static/css/list/prolist.css">
+    <script src="modules/lib/sea/sea-min.js"></script>
+    <script src="modules/common/seaConf.js"></script>
+    <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-start{clip:rect(0,auto,auto,0);-ms-zoom:1.0001;}.ng-animate-active{clip:rect(-1px,auto,auto,0);-ms-zoom:1;}</style>
+</head>
+<body id="body">
+	<div id="page" ng-controller="index" ng-cloak>
+		<header>
+	        <div id="headerLeft">
+	            <a href="javascript:;" onClick="javascript:history.go(-1)" title="返回"><i class="header_return"></i>返回</a>
+	        </div>
+	        <h1>速赢</h1>
+		</header>
+		<section id="section">
+			
+	        <article id="banner-box">
+	            <!-- 图片 -->
+	            <ul id="banner">
+	                <li><a href="#"><img src="static/images/pro/connection_disable.png" alt="" /></a></li>
+	                <li><a href="#"><img src="static/images/pro/risk.png" alt="" /></a></li>
+	                <li><a href="#"><img src="static/images/pro/connection_disable.png" alt="" /></a></li>
+	                <li><a href="#"><img src="static/images/pro/risk.png" alt="" /></a></li>
+	            </ul>
+	            <!-- 焦点 每增一张图需增一个span -->
+	            <div class="dot">
+	                <span class="cur"></span>
+	                <span class=""></span>
+	                <span class=""></span>
+	                <span class=""></span>
+	            </div>
+	        </article>
+	        <article ng-controller="checkLogin">
+	            <nav>
+	                <ul class="clr">
+	                    <li>
+	                        <a href="publicFundList.html">
+	                            <i class="icon_nav_1"></i>
+	                            <p>全部产品</p>
+	                        </a>
+	                    </li>
+	                    <li>
+	                        <a ng-click="toAssets()" href="javascript:void(0)">
+	                            <i class="icon_nav_2"></i>
+	                            <p>我的资产</p>
+	                        </a>
+	                    </li>
+	                    <li>
+	                        <a ng-click="myOrder()" href="javascript:void(0)">
+	                            <i class="icon_nav_3"></i>
+	                            <p>我的订单</p>
+	                        </a>
+	                    </li>
+	                    <li>
+	                        <a  ng-click="myActivity()" href="javascript:void(0)">
+	                            <i class="icon_nav_4"></i>
+	                            <p>活动专区</p>
+	                        </a>
+	                    </li>
+	                </ul>
+	            </nav>
+	        </article>
+	        
+	        <!--显示内容:自定义展示-->
+	        <div class="prolistBox">
+	        	<div ng-repeat="item in items" ng-include="item.tpl"></div>
+	        </div>
+	        
+	        <!--模板列表-->
+	    	<script type="text/ng-template" id="one.tpl.html">
+	            <article class="prolist" ng-controller="renderIndex" ng-click='showDetail()'>
+	                <img src="static/images/common/product_lable_float.png" class="prolist_img" />
+	                <div class="prolist_title">
+	                    <div class="prolist_title_padding">
+	                        <p class="prolist_name">{{k1.name}}<span class="prolsit_hot"></span></p>
+	                        <p class="prolsit_paper">{{k1.productNo}}</p>
+	                    </div>
+	                    <div class="prolist_box2">
+	                        <div class="prolist_apply">
+	                            <span class="prolist_trading2">
+	                                <p>近3个月涨幅</p>
+	                                <p class="prolsit_d">{{ k1.threeMonth | nColor}}%</p>
+	                            </span>
+	                            <span class="prolist_amount2">
+	                                <p>近6个月涨幅</p>
+	                                <p class="prolsit_d">{{k1.sixMonth}}%</p>
+	                            </span>
+	                        </div>
+	                    </div>
+	                    <div class="prolsit_con">
+	                        <p class="prolsit_next2">
+	                            <span>点评：绩优股</span>
+	                        </p>
+	                    </div>
+	                </div>
+	            </article>
+	        </script>
+	        
+	        <script type="text/ng-template" id="two.tpl.html">
+	            <article class="prolist" ng-controller="renderIndex" ng-click='showDetail()'>
+	                <img src="static/images/common/product_lable_stable.png" class="prolist_img" />
+	                <div class="prolist_title">
+	                    <div class="prolist_title_padding">
+	                        <p class="prolist_name">{{k2.name}}<span class="prolsit_e"></span></p>
+	                        <p class="prolsit_paper">{{k2.productNo}}</p>
+	                    </div>
+	                    <div class="prolist_box2">
+	                        <div class="prolist_apply">
+	                            <span class="prolist_trading2">
+	                                <p>近3个月涨幅</p>
+	                                <p class="prolsit_d">{{k2.threeMonth}}%</p>
+	                            </span>
+	                            <span class="prolist_amount2">
+	                                <p>近3个月涨幅</p>
+	                                <p class="prolsit_d">{{k2.sixMonth}}%</p>
+	                            </span>
+	                        </div>
+	                    </div>
+	                    <div class="prolist_box">
+	                        <div class="prolist_apply">
+	                            <span class="prolist_trading">
+	                                <p>起购金额</p>
+	                                <p class="prolsit_black">{{k2.beginMoney}}</p>
+	                            </span>
+	                            <span class="prolist_amount">
+	                                <p>开售日期</p>
+	                                <p class="prolsit_black">{{k2.openSale}}</p>
+	                            </span>
+	                        </div>
+	                        <div class="prolsit_con">
+	                            <p class="prolsit_next">
+	                                <span class="free">认购费全免</span>
+	                                <span class="high">高收闪预期</span>
+	                                <span class="safe">亏损风险&lt;5%</span>
+	                            </p>
+	                        </div>
+	                    </div>
+	                </div>
+	            </article>
+	        </script>
+	        
+	        <script type="text/ng-template" id="three.tpl.html">
+	            <article class="prolist" ng-controller="renderIndex" ng-click='showDetail()'>
+	                <img src="static/images/common/product_lable_stable.png" class="prolist_img" />
+	                <div class="prolist_title">
+	                    <div class="prolist_title_padding">
+	                        <p class="prolist_name">{{k3.name}}<span class="prolsit_e"></span></p>
+	                        <p class="prolsit_paper">{{k3.productNo}}</p>
+	                    </div>
+	                    <div class="prolsit_txt">近7日年化收益率<span  class="prolsit_d">{{k3.sevenRate}}%</span></div>
+	                    <div class="prolist_box">
+	                        <div class="prolist_apply">
+	                            <span class="prolist_trading">
+	                                <p>起购金额</p>
+	                                <p class="prolsit_black">{{k3.beginMoney}}</p>
+	                            </span>
+	                            <span class="prolist_amount">
+	                                <p>开售日期</p>
+	                                <p class="prolsit_black">{{k3.openSale}}</p>
+	                            </span>
+	                            <span class="prolist_imit">
+	                                <p>理财限期</p>
+	                                <p class="prolsit_black">{{k3.limitMonth}}个月</p>
+	                            </span>
+	                        </div>
+	                        <div class="prolsit_con">
+	                            <p class="prolsit_next">
+	                                <span class="employe">员工专享</span>
+	                            </p>
+	                        </div>
+	                    </div>
+	                </div>
+	            </article>
+	        </script>
+	        
+	        <script type="text/ng-template" id="four.tpl.html">
+	            <article class="prolist" ng-controller="renderIndex" ng-click='showDetail()'>
+	                <img src="static/images/common/product_lable_stable.png" class="prolist_img" />
+	                <div class="prolist_title">
+	                    <div class="prolist_title_padding">
+	                        <p class="prolist_name">{{k4.name}}<span class="prolsit_stop"></span></p>
+	                        <p class="prolsit_paper">{{k4.productNo}}</p>
+	                    </div>
+	                    <div class="prolist_box2">
+	                        <div class="prolist_apply">
+	                            <span class="prolist_trading2">
+	                                <p>近3个月涨幅</p>
+	                                <p class="prolsit_d">{{k4.threeMonth}}%</p>
+	                            </span>
+	                            <span class="prolist_process">
+	                                <p>已完成<span class="prolsit_80">{{k4.completedRate}}%</span></p>
+	                                <div class="process">
+	                                    <div class="processVal"></div>
+	                                </div>
+	                                <p>
+	                                    <div class="time">
+	                                        <span>还有</span>
+	                                        <span id="t_d">{{k4.surplus.day}}</span>
+	                                        <span>天</span>
+	                                        <span id="t_h">{{k4.surplus.hour}}</span>
+	                                        <span>时</span>
+	                                        <span id="t_m">{{k4.surplus.second}}</span>
+	                                        <span>分</span>
+	                                        <span>结束</span>
+	                                    </div>
+	                                </p>
+	                            </span>
+	                        </div>
+	                    </div>
+	                    <div class="prolist_box">
+	                        <div class="prolist_apply">
+	                            <span class="prolist_trading">
+	                                <p>起购金额</p>
+	                                <p class="prolsit_black">{{k4.beginMoney}}</p>
+	                            </span>
+	                            <span class="prolist_amount">
+	                                <p>开售日期</p>
+	                                <p class="prolsit_black">{{k4.openSale}}</p>
+	                            </span>
+	                            <span class="prolist_imit">
+	                                <p>理财限期</p>
+	                                <p class="prolsit_black">{{k4.limitMonth}}</p>
+	                            </span>
+	                        </div>
+	                    </div>
+	                    <div class="prolsit_con">
+	                        <p class="prolsit_next2">
+	                            <span>点评：绩优股</span>
+	                        </p>
+	                    </div>
+	                </div>
+	            </article>
+	        </script> 
+	        
+	        <script type="text/ng-template" id="five.tpl.html">    
+	            <article class="prolist" ng-controller="renderIndex" ng-click='showDetail()'>
+	                <img src="static/images/common/product_lable_stable.png" class="prolist_img" />
+	                <div class="prolist_title">
+	                    <div class="prolist_title_padding">
+	                        <p class="prolist_name">{{k5.name}}<span class="prolsit_e"></span></p>
+	                        <p class="prolsit_paper">{{k5.productNo}}</p>
+	                    </div>
+	                    <div class="prolsit_txt">预期年化收益率<span  class="prolsit_d">{{k5.yearRate}}%</span></div>
+	                    <div class="prolist_box">
+	                        <div class="prolist_apply">
+	                            <span class="prolist_trading">
+	                                <p>起购金额</p>
+	                                <p class="prolsit_black">{{k5.beginMoney}}</p>
+	                            </span>
+	                            <span class="prolist_amount">
+	                                <p>开售日期</p>
+	                                <p class="prolsit_black">{{k5.openSale}}</p>
+	                            </span>
+	                            <span class="prolist_imit">
+	                                <p>理财限期</p>
+	                                <p class="prolsit_black">{{k5.limitMonth}}</p>
+	                            </span>
+	                        </div>
+	                    </div>
+	                    <div class="prolsit_con">
+	                        <p class="prolsit_next2">
+	                            <span>点评：绩优股</span>
+	                        </p>
+	                    </div>
+	                </div>
+	            </article>
+	        </script>
+	        
+	        <script type="text/ng-template" id="six.tpl.html">     
+	            <article class="prolist" ng-controller="renderIndex" ng-click='showDetail()'>
+	                <img src="static/images/common/product_lable_float.png" class="prolist_img" />
+	                <div class="prolist_title">
+	                    <div class="prolist_title_padding">
+	                        <p class="prolist_name">{{k6.name}}<span class="prolsit_hot"></span></p>
+	                        <p class="prolsit_paper">{{k6.productNo}}</p>
+	                    </div>
+	                    <div class="prolist_count_down">
+	                        <p>距离结束时间</p>
+	                        <div class="time">
+	                            <span id="t_d" class="t_d">{{k6.surplus.day}}</span>
+	                            <span class="prolsit_color80">天</span>
+	                            <span id="t_h" class="t_h">{{k6.surplus.hour}}</span>
+	                            <span class="prolsit_color80">时</span>
+	                            <span id="t_m" class="t_m">{{k6.surplus.min}}</span>
+	                            <span class="prolsit_color80">分</span>
+	                        </div>
+	                    </div>
+	                    <div class="prolist_box">
+	                        <div class="prolist_apply">
+	                            <span class="prolist_trading">
+	                                <p>投资金额</p>
+	                                <p class="prolsit_black">{{k6.amount}}元</p>
+	                            </span>
+	                            <span class="prolist_amount">
+	                                <p>投资顾问</p>
+	                                <p class="prolsit_black">{{k6.adviser}}</p>
+	                            </span>
+	                        </div>
+	                    </div>
+	                     <div class="prolsit_con">
+	                        <p class="prolsit_next2">
+	                            <span>点评：绩优股</span>
+	                        </p>
+	                    </div>
+	                </div>
+	            </article>
+	        </script>
+	        
+	        <script type="text/ng-template" id="seven.tpl.html">
+	            <article class="prolist" ng-controller="renderIndex" ng-click='showDetail()'>
+	                <img src="static/images/common/product_lable_float.png" class="prolist_img" />
+	                <div class="prolist_title">
+	                    <div class="prolist_title_padding">
+	                        <p class="prolist_name">{{k7.name}}<span class="prolsit_e"></span></p>
+	                        <p class="prolsit_paper">{{k7.productNo}}</p>
+	                    </div>
+	                    <div class="prolist_box">
+	                        <div class="prolist_apply">
+	                            <span class="prolist_trading">
+	                                <p>投资金额</p>
+	                                <p class="prolsit_black">{{k7.amount}}元</p>
+	                            </span>
+	                            <span class="prolist_amount">
+	                                <p>投资顾问</p>
+	                                <p class="prolsit_black">{{k7.adviser}}</p>
+	                            </span>
+	                        </div>
+	                    </div>
+	                    <div class="prolsit_con">
+	                        <p class="prolsit_next2">
+	                            <span>点评：绩优股</span>
+	                        </p>
+	                    </div>
+	                </div>
+	            </article>
+	        </script>
+	        
+	        <script type="text/ng-template" id="eight.tpl.html">
+	            <article class="prolist" ng-controller="renderIndex" ng-click='showDetail()'>
+	                <img src="static/images/common/product_lable_currency.png" class="prolist_img" />
+	                <div class="prolist_title">
+	                    <div class="prolist_title_padding">
+	                        <p class="prolist_name">{{k8.name}}<span class="prolsit_e"></span></p>
+	                        <p class="prolsit_paper">{{k8.productNo}}</p>
+	                    </div>
+	                    <div class="prolsit_txt">力争大幅超越行业水平<span  class="prolsit_d">+{{k8.overRate}}%</span></div>
+	                    <div class="prolist_box">
+	                        <div class="prolist_apply">
+	                            <span class="prolist_trading">
+	                                <p>起购金额</p>
+	                                <p class="prolsit_black">{{k8.beginMoney}}</p>
+	                            </span>
+	                            <span class="prolist_amount">
+	                                <p>开售日期</p>
+	                                <p class="prolsit_black">{{k8.openSale}}</p>
+	                            </span>
+	                        </div>
+	                        <div class="prolsit_con">
+	                            <p class="prolsit_next">
+	                                <span class="free">认购费全免</span>
+	                                <span class="high">高收闪预期</span>
+	                                <span class="safe">亏损风险&lt;5%</span>
+	                            </p>
+	                        </div>
+	                    </div>
+	                </div>
+	            </article>
+	        </script>
+	        
+	        <script type="text/ng-template" id="nine.tpl.html">
+	            <article class="prolist" ng-controller="renderIndex" ng-click='showDetail()'>
+	                <img src="static/images/common/product_lable_currency.png" class="prolist_img" />
+	                <div class="prolist_title">
+	                    <div class="prolist_title_padding">
+	                        <p class="prolist_name">{{k9.name}}<span class="prolsit_hot"></span></p>
+	                        <p class="prolsit_paper">{{k9.productNo}}</p>
+	                    </div>
+	                    <div class="prolist_box2">
+	                        <div class="prolist_apply">
+	                            <span class="prolist_trading2">
+	                                <p>近3个月涨幅</p>
+	                                <p class="prolsit_d">{{k9.threeMonth}}%</p>
+	                            </span>
+	                            <span class="prolist_process">
+	                                <p>距离发布时间</p>
+	                                <div class="time">
+	                                    <span id="t_h" class="t_h">{{k9.beginTime.hour}}</span>
+	                                    <span class="prolsit_color80">时</span>
+	                                    <span id="t_m" class="t_m">{{k9.beginTime.min}}</span>
+	                                    <span class="prolsit_color80">分</span>
+	                                </div>
+	                            </span>
+	                        </div>
+	                    </div>
+	                    <div class="prolsit_con">
+	                        <p class="prolsit_next2">
+	                            <span>点评：绩优股</span>
+	                        </p>
+	                    </div>
+	                </div>
+	            </article>
+	        </script>
+	        
+		</section>
+	    <div id="footer_index">
+	        <article class="index_directory">
+	            <ul class="clr">
+	                <li>
+	                    <a href="publicFundList.html" otitle='基金产品' otype='button'>
+	                        <i class="icon_list_1"></i>
+	                        <p>基金产品</p>
+	                    </a>
+	                </li>
+	                <li>
+	                    <a href="specialFundList.html" otitle='专项理财' otype='button'>
+	                        <i class="icon_list_2"></i>
+	                        <p>专项理财</p>
+	                    </a>
+	                </li>
+	                <li>
+	                    <a href="#" otitle='现金理财' otype='button'>
+	                        <i class="icon_list_3"></i>
+	                        <p>现金理财</p>
+	                    </a>
+	                </li>
+	            </ul>
+	        </article>
+	    </div>
+	</div>
+	<script type="text/javascript">
+	     //测试环境，引入未压缩文件
+		 if (location.href.indexOf("?dev") > 0) {
+		     seajs.use("controller/index", function(main) {
+		         main.init()
+		     });
+		 }
+		 //生产环境，引入压缩文件
+		 else {
+		     seajs.use("controller/index", function(main) {
+		         main.init()
+		     });
+		 }
+ 	</script>
+</body>
+</html>

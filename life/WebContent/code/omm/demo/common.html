@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>平安证券</title>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport"/>
+        <link href="../static/css/common.css" rel="stylesheet" type="text/css">
+        <link href="../static/css/index/index.css" rel="stylesheet" type="text/css">
+        <script src="../modules/lib/sea/sea-min.js" data-main="./init"></script>
+    	<script src="../modules/common/seaConf.js"></script>
+    </head>
+    <body>
+    	 <div id="test"></div>
+    	 
+    	 <!--实现select选择控件-->
+    	 <p class="com_list_table com_listfield" id="listfield">
+            <span class="com_list_table_lcell">证件类型</span>
+            <span class="com_list_table_rcell"></span>
+         </p>
+         
+         <!--radiobox选择插件-->
+        <p class="com_list_table">
+            <span class="com_list_table_lcell" style="width: 250px">是否同意</span>
+            <span class="com_list_table_rcell">
+                <span style="float: right" class="com_radiobox" id="radiobox"></span>
+            </span>
+        </p>
+    	 
+    	 <script type="text/javascript">
+    	 	seajs.use("controller/index");
+    	 </script>
+    </body>
+</html>

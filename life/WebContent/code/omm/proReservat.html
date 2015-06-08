@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=640,target-densitydpi=320,user-scalable=no,maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" type="text/css" href="static/css/global.css">
+    <link rel="stylesheet" type="text/css" href="static/css/pro/pro.css">
+    <script src="modules/lib/sea/sea-min.js" data-main="./init"></script>
+    <script src="modules/common/seaConf.js"></script>
+</head>
+<body>
+<div id="page">
+	<header>
+        <div id="headerLeft">
+            <a href="javascript:;" onClick="javascript:history.go(-1)" title="返回"><i class="header_return"></i>返回</a>
+        </div>
+        <h1>产品预约</h1>
+	</header>
+	<section id="section_pro">
+		<article class="product_special" id="proReservatWrap">
+             <!--<img src="static/images/my/product_lable_stable.png" class="product_special_img" />
+            <div class="product_special_title">
+               <div class="product_special_title_padding">
+                    <p class="product_special_name">一个非常长的产品名字A</p>
+                    <p class="product_special_paper">0000380</p>
+                </div>
+            </div>-->
+        </article>
+        <article class="product_money">
+            <p class="product_money_amount">
+                <span>预约金额</span>
+                <input class="input_money" name="inputMoney" type="tel" placeholder="请输入100元以上金额" id="inputMoney" data-min="100" data-max="100000000" />
+            </p>
+            <p class="product_money_capital"  id="capitalMoney" style="display:none;">
+                <span>金额大写:<span class="capital" id="capital">壹佰萬圆</span></span>
+            </p>
+        </article>
+        <article class="product_money">
+            <p class="product_money_amount">
+                <span>联系电话</span>
+                <input class="input_money" name="telNum" type="tel" placeholder="请输入可以通知到您的电话号码" pattern="^1[34578]\d{9}$" id="telNumber" />
+                <a href="javascript:;"><i class="icon_error"></i></a>
+            </p>
+        </article>
+        <article class="product_button">
+            <span class="product_button_yes" style="display:none;" id="buttonYes">确认预约</span>
+            <span class="product_button_no" id="buttonNo">确认预约</span>
+        </article>
+	</section>
+	<footer>
+		<p>平安证券官方出品，资金安全有保障</p>
+	</footer>
+</div>
+
+<script id="proReservatTem" type="text/template">
+    <img src="<%=bgSrc%>" class="product_special_img" />
+    <div class="product_special_title" id="proReservatTitle" data-min=<%=minMoney%> data-max=<%=maxMoney%> >
+        <div class="product_special_title_padding">
+            <p class="product_special_name"><%=myorder_name%></p>
+            <p class="product_special_paper"><%=myorder_paper%></p>
+        </div>
+    </div>
+</script>
+
+<script>
+    seajs.use('controller/proReseavat',function(main){
+        main.init();
+    })
+</script>
+</body>
+</html>

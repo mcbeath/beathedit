@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=640,target-densitydpi=320,user-scalable=no,maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" type="text/css" href="static/css/global.css">
+    <link rel="stylesheet" type="text/css" href="static/css/pro/pro.css">
+    <script type="text/javascript" src="static/js/zepto.min.js"></script>
+    <script type="text/javascript" src="static/js/touch.js"></script>
+    <script type="text/javascript" src="static/js/underscore-min.js"></script>
+    <script type="text/javascript" src="static/js/sea.js"></script>
+    <script type="text/javascript" src="static/js/index.js"></script>
+</head>
+<body>
+<div id="page">
+	<header>
+        <div id="headerLeft">
+            <a href="javascript:;" onClick="javascript:history.go(-1)" title="返回"><i class="header_return"></i>返回</a>
+        </div>
+        <h1>登录</h1>
+	</header>
+	<section id="section">
+        <article>
+            <nav>
+                <ul class="login_nav">
+                    <li><a href="javascript:;" class="check">身份证登录</a></li>
+                    <li><a href="javascript:;">资金账户登录</a></li>
+                </ul>
+            </nav>
+        </article>
+        <article class="login_box">
+            <p class="login_id">
+                <span>登录账号</span>
+                <input class="input_login login1" type="text" placeholder="请输入资金账号或身份证号" />
+                 <a href="javascript:;"><i class="icon_clear1"></i></a>
+            </p>
+            <p class="login_error">
+                <span><i class="icon_error"></i>此账号不存在</span>
+            </p>
+            <p class="login_id">
+                <span>交易密码</span>
+                <input class="input_login login2" type="password" placeholder="请输入交易密码" />
+                <a href="javascript:;"><i class="icon_clear2"></i></a>
+            </p>
+            <p class="login_error">
+                <span><i class="icon_error"></i>密码不正确，你还可以输入4次</span>
+            </p>
+        </article>
+        <article class="login_box" style="display:none">
+            <p class="login_id">
+                <span>登录账号</span>
+                <input class="input_login login1" type="text" placeholder="请输入资金账号或身份证号" />
+                 <a href="javascript:;"><i class="icon_clear1"></i></a>
+            </p>
+            <p class="login_sales">
+                <span>归属营业部：深圳东南营业部</span>
+            </p>
+            <p class="login_id">
+                <span>交易密码</span>
+                <input class="input_login login2" type="password" placeholder="请输入交易密码" />
+                <a href="javascript:;"><i class="icon_clear2"></i></a>
+            </p>
+            <p class="login_id">
+                <span>验证码</span>
+                <input class="input_login login3" type="text" placeholder="请输入验证码" />
+                <a href="javascript:;"><i class="icon_code"></i></a>
+            </p>
+        </article>
+        <article class="login_button">
+            <a href="#" class="login_confirm"><span>登录</span></a>
+        </article>
+        <article class="login_forget">
+            <p>
+                <span><a href="" class="login_password">忘记密码</a></span>
+                 <span>|</span>
+                <span><a href="" class="login_account">开户</a></span>
+            </p>
+        </article>
+        <article>
+             <div class="login_loading">
+                 <div class="loading"></div>
+             </div>
+        </article>
+	</section>
+	<footer>
+		<p>平安证券官方出品，资金安全有保障</p>
+	</footer>
+</div>
+</body>
+</html>

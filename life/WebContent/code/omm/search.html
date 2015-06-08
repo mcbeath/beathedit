@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=640,target-densitydpi=320,user-scalable=no,maximum-scale=1.0" />
+    <title>产品搜索</title>
+	<link rel="stylesheet" type="text/css" href="static/css/global.css">
+    <link rel="stylesheet" type="text/css" href="static/css/pro/pro.css">
+	<style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-start{clip:rect(0,auto,auto,0);-ms-zoom:1.0001;}.ng-animate-active{clip:rect(-1px,auto,auto,0);-ms-zoom:1;}</style>
+
+<style type="text/css">
+#scroller{
+	position: absolute;
+	top: 245px;
+	bottom: 64px;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+	background-color: #fff;
+}
+.pullDown, .pullUp {
+	background:#fff;
+	height:40px;
+	line-height:40px;
+	padding:5px 10px;
+	border-bottom:1px solid #ccc;
+	font-weight:bold;
+	font-size:14px;
+	color:#888;
+}
+.pullDown .pullDownIcon, .pullUp .pullUpIcon  {
+	display:block; float:left;
+	width:40px; height:40px;
+	background:url(static/images/common/pull-icon.png) 0 0 no-repeat;
+	-webkit-background-size:40px 80px; background-size:40px 80px;
+	-webkit-transition-property:-webkit-transform;
+	-webkit-transition-duration:250ms;	
+}
+.pullDown .pullDownIcon {
+	-webkit-transform:rotate(0deg) translateZ(0);
+}
+.pullUp .pullUpIcon  {
+	-webkit-transform:rotate(-180deg) translateZ(0);
+}
+
+.pullDown.flip .pullDownIcon {
+	-webkit-transform:rotate(-180deg) translateZ(0);
+}
+
+.pullUp.flip .pullUpIcon {
+	-webkit-transform:rotate(0deg) translateZ(0);
+}
+
+.pullDown.loading .pullDownIcon, .pullUp.loading .pullUpIcon {
+	background-position:0 100%;
+	-webkit-transform:rotate(0deg) translateZ(0);
+	-webkit-transition-duration:0ms;
+
+	-webkit-animation-name:loading;
+	-webkit-animation-duration:2s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-timing-function:linear;
+}
+
+@-webkit-keyframes loading {
+	from { -webkit-transform:rotate(0deg) translateZ(0); }
+	to { -webkit-transform:rotate(360deg) translateZ(0); }
+}
+.loading{width: 100%;}
+.nav li a { width: 100px; }
+.listfund li.listfund_one .fund3{ width: 148px; }
+.listfund li span.pullUpIcon, .listfund li span.pullUpLabel{padding: 0;}
+.ccsk-placeholder{position: fixed !important;}
+</style>
+</head>
+<body ng-controller="SearchFundController" ng-cloak>
+	<div id="page">
+		<header>
+	        <div id="headerLeft">
+	            <a href="javascript: void(0);" onClick="javascript:history.go(-1)" title="返回"><i class="header_return"></i>返回</a>
+	        </div>
+	        <h1>产品搜索</h1>
+		</header>
+		<section id="section">
+	        <article class="prosearch_box clr">
+	            <p class="prosearch_txt">
+	                <i class="icon_search"></i>
+	                <input class="input_search" type="text" name="key" ng-model="key" ng-keyup="fund.search(key)" placeholder="请输入基金代码或基金简称" />
+	            </p>
+	        </article>
+	        <article class="hop_search">
+	            <p class="hop_search_txt">热门搜索</p>
+	        </article>
+	        <article class="prosearch_list" style="position: static;">
+	       		<div id="scroller">
+					<ul class="list-unstyled">
+						<li ng-repeat="result in fund.results" ex-render-complate="fund.scroller">
+							<dl class="clr" ng-click="fund.go(result.product_no)">
+			                    <dt><span>{{result.product_no}}</span></dt>
+			                    <dd><span>{{result.name}}</span></dd>
+				            </dl>
+						</li>
+						<li class="last" ng-show="fund.directive == 1">
+							<div class="pullUp" ng-class="{loading: fund.loaded != 0}">
+								<span class="pullUpIcon"></span>
+								<span class="pullUpLabel" ng-show="fund.loaded == 0">向上拉动加载更多</span>
+								<span class="pullUpLabel" ng-show="fund.loaded != 0">加载中...</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+	        </article>
+		</section>
+	
+		<footer>
+			<p>平安证券官方出品，资金安全有保障</p>
+		</footer>
+	</div>
+	
+	
+	<script type="text/javascript" src="./modules/lib/sea/sea-min.js"></script>
+	<script type="text/javascript" src="./modules/common/seaConf.js"></script>
+	<script type="text/javascript" src="./modules/controller/search.js"></script>
+</body>
+</html>

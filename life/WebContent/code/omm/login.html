@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>用户登录</title>
+    <meta name="viewport" content="width=640,target-densitydpi=320,user-scalable=no,maximum-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="static/css/global.css">
+    <link rel="stylesheet" type="text/css" href="static/css/pro/pro.css">
+    <link rel="stylesheet" type="text/css" href="static/css/ccsk/cc-sk-2.3.4.css">
+	<style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-start{clip:rect(0,auto,auto,0);-ms-zoom:1.0001;}.ng-animate-active{clip:rect(-1px,auto,auto,0);-ms-zoom:1;}</style>
+</head>
+<body ng-cloak>
+<div id="page" ng-controller="AccountController" ng-init="account.checkLogin();account.getBranchInfo();account.maxlength=18;account.loginType='00';account.placeholder.username='请输入身份证号'">
+	<header>
+        <div id="headerLeft">
+            <a href="javascript:;" onClick="javascript:history.go(-1)" title="返回"><i class="header_return"></i>返回</a>
+        </div>
+        <h1>登录</h1>
+	</header>
+	<section id="section">
+		<article>
+            <nav>
+                <ul class="login_nav">
+                    <li><a href="javascript: void(0);" ng-class="{check: account.loginType == '00' }" ng-click="account.loginType = '00'; account.maxlength = 18; account.placeholder.username='请输入身份证号'">身份证登录</a></li>
+                    <li><a href="javascript: void(0);" ng-class="{check: account.loginType == '1' }" ng-click="account.loginType = '1'; account.maxlength =12; account.placeholder.username='请输入资金账号'">资金账户登录</a></li>
+                </ul>
+            </nav>
+        </article>
+       	<form name="accountForm">
+	        <article class="login_box">
+	            <p class="login_id">
+	                <span>登录账号</span>
+	                <input class="input_login login1" id="username" maxlength="{{account.maxlength}}" ng-keyup="account.carry(account)" ng-model="account.username" name="username" required ng-pattern="/^[0-9a-z]{12,18}$/i" type="tel" placeholder="{{account.placeholder.username}}" />
+	                 <a href="javascript: void(0);" ng-click="account.clear('username')"><i class="icon_clear1"></i></a>
+	            </p>
+	            <p class="login_sales" ng-show="account.loginType == '1' && account.branch != null">
+	                <span>归属营业部：{{account.branch.branchname}}</span>
+	            </p>
+	            <p class="login_id">
+	                <span>交易密码</span>
+	                <input class="input_login login2" type="password" maxlength="6" initialize="true" id="password" width="403" height="84" keyboard-type="Normal" security-url="{{CLOUD_SECURITY_KEYBOARD}}" ex-cloud-keyboard  name="password" ng-model="account.password" placeholder="请输入交易密码" />
+	                <a href="javascript: void(0);" ng-click="account.clear('password')"><i class="icon_clear2"></i></a>
+	            </p>
+	            <p class="login_id" ng-show="account.passworderror == 1">
+	                <span>验证码</span>
+	                <input class="input_login login3" type="text" maxlength="4" required ng-pattern="/^[0-9a-z]{4}$/i" name="captcha" ng-model="account.captcha" placeholder="请输入验证码" />
+	                <img width="120" height="50" ng-src="{{HOST}}/omm/img/Validateimg.do?_t={{account.timestamp}}" ng-click="account.refresh()" alt="" /> 
+	            </p>
+	            <p class="login_error" ng-show="account.valid.username == false || account.valid.password == false">
+	                <span><i class="icon_error"></i>您的用户名或密码有误，请核实</span>
+	            </p>
+	            <p class="login_error" ng-show="account.errorMessage">
+	                <span><i class="icon_error"></i>{{account.errorMessage}}</span>
+	            </p>
+	            <p class="login_error" ng-show="account.valid.captcha == false && account.passworderror == 1">
+	                <span><i class="icon_error"></i>验证码格式有误，请核实</span>
+	            </p>
+	        </article>
+	        <article class="login_button">
+	            <a  class="login_confirm" href="javascript: void(0);" ng-click="account.login(account)">确认</a>
+	        </article>
+	        <article class="login_forget">
+	            <p>
+	                <span><a href="javascript: void(0);" class="login_password">忘记密码</a></span>
+	                 <span>|</span>
+	                <span><a href="javascript: void(0);" class="login_account">开户</a></span>
+	            </p>
+	        </article>
+        </form>
+	</section>
+	<footer>
+		<p>平安证券官方出品，资金安全有保障</p>
+	</footer>
+</div>
+	<script type="text/javascript" src="./modules/lib/sea/sea-min.js"></script>
+	<script type="text/javascript" src="./modules/common/seaConf.js"></script>
+	<script type="text/javascript">seajs.use('./modules/controller/account', function(account){ account.run(); });</script>
+</body>
+</html>

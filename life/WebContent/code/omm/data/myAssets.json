@@ -1,0 +1,29 @@
+{
+	"data":[
+		{
+			"myorder_name":"一个非常长的产品名字A",
+			"myorder_paper":"0000380",
+			"money1":"10000000",
+			"money2":"120000",
+			"percent":"6.1234",
+			"bgSrc":"static/images/common/product_lable_currency.png",
+			"undo2Src":"#",
+			"undo1Src":"#"
+		},
+		{
+			"myorder_name":"一个非常长的产品名字A",
+			"myorder_paper":"0000380",
+			"money1":"10000000",
+			"money2":"120000",
+			"percent":"6.12",
+			"startTime":"2015/4/01",
+			"endTime":"2016/4/01",
+			"bgSrc":"static/images/common/product_lable_stable.png",
+			"undo2Src":"#",
+			"undo1Src":"#"
+		}],
+		"totle":"1,000,000.00",
+		"money":"3,000.00",
+		"transferUrl":"#",
+		"flg":1
+}

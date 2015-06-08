@@ -1,0 +1,34 @@
+{
+	"data":[
+		{
+			"myorder_name":"一个非常长的产品名字A",
+			"myorder_paper":"0000380",
+			"apply_2":"10000000",
+			"apply_4":"6.1234",
+			"time":"2015/04/15",
+			"bgSrc":"static/images/common/product_lable_cash.png",
+			"isBuy":"购买",
+			"buyHref":"#"
+		},
+		{
+			"myorder_name":"一个非常长的产品名字B",
+			"myorder_paper":"0000380",
+			"apply_2":"10000000",
+			"apply_4":"6.1234",
+			"time":"2015/04/15",
+			"bgSrc":"static/images/common/product_lable_cash.png",
+			"isBuy":"购买",
+			"buyHref":"#"
+		},
+		{
+			"myorder_name":"一个非常长的产品名字C",
+			"myorder_paper":"0000380",
+			"apply_2":"10000000",
+			"apply_4":"6.1234",
+			"time":"2015/04/15",
+			"bgSrc":"static/images/common/product_lable_currency.png",
+			"isBuy":"清除",
+			"buyHref":"#"
+		}],
+		"flg":1
+}

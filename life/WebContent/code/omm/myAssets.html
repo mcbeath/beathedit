@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>我的资产</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=640,target-densitydpi=320,user-scalable=no,maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" type="text/css" href="static/css/global.css">
+    <link rel="stylesheet" type="text/css" href="static/css/my/my.css">
+    <script src="modules/lib/sea/sea-min.js" data-main="./init"></script>
+    <script src="modules/common/seaConf.js"></script>
+</head>
+<body>
+<div id="page">
+	<header>
+        <div id="headerLeft">
+            <a href="javascript:;" onClick="javascript:history.go(-1)" title="返回"><i class="header_return"></i>返回</a>
+        </div>
+        <h1>我的资产</h1>
+	</header>
+    <section id="section">
+        <article class="myAssets" id="totalMoney"></article>
+    	
+    	<div style="display:none;">
+        <article class="myAssets_my">
+            <p>我的持仓-现金宝</p>
+        </article>
+        <article class="myAssets">
+            <div class="myorder_title">
+                <div class="myorder_title_padding">
+                    <p class="myorder_name">现金宝</p>
+                    <p class="myorder_paper">0000380</p>
+                    <i class="myAssets_return"></i>
+                </div>
+                <div class="myAssets_box">
+                    <div class="myAssets_apply">
+                        <P>
+                            <span>最新市值</span>
+                            <span class="myAssets_red">1,000,000,00元</span>
+                        </P>
+                    </div>
+                    <div class="myAssets_con">
+                        <p>累计收益:<span class="myAssets_org">4532.00元</span></p>
+                        <p>7日年化收益率:<span class="myAssets_O">6.1234%</span></p>
+                    </div>
+                    <p class="myAssets_name">
+                       <span>资金账户余额:<span class="myAssets_O">1,000,000.00元</span></span>
+                        <a href="javascript:;">预留设置</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        </div>
+        
+        <article class="myAssets_my">
+            <p>我的持仓-理财产品</p>
+        </article>
+        <article class="empty" style="display:none;" id="empty">
+            <img src="static/images/my/empty_property.png" />
+            <p>您没有持有理财产品</p>
+            <a href="javascript:;">去看看推荐产品</a>
+        </article>
+        <div id="moneyList"></div>
+    </section>
+</div>
+<script type="text/template" id="totalMoneyTpl">
+    <p class="myAssets_capital"><i class="icon_account"></i>资金账户</p>
+    <p class="myAssets_name">
+        <span>主帐户资产:</span><span class="myAssets_80"><%=china_assert_val%>元</span> 
+    </p>
+    <p class="myAssets_name">
+        <span>理财产品市值:</span><span class="myAssets_80"><%=jhlcVal%>元</span>
+    </p>
+    <p class="myAssets_name">
+        <span>股票市值:</span><span class="myAssets_80"><%=rmbVal%>元</span>
+    </p>
+    <p class="myAssets_name">
+        <span>基金市值:</span><span class="myAssets_80"><%=jjVal%>元</span>
+    </p>
+    <p class="myAssets_name">
+        <span>资金余额:</span><span class="myAssets_80"><%=china_balance%>元</span>
+    </p> 
+    <p class="myAssets_name">
+        <span>可用余额:</span><span class="myAssets_80"><%=china_available%>元</span>
+        <a href="transferType.html">银证转账</a>
+    </p> 
+</script>
+
+<script type="text/template" id="moneyListTpl">
+     <%_.each(obj, function(item) {%>
+        <article class="myAssets">
+        <div class="myorder_title">
+                <div class="myorder_title_padding" ref="<%=item.fund_code%>">
+                    <p class="myorder_name"><%=item.fund_name%></p>
+                    <p class="myorder_paper"><%=item.fund_code%></p>
+                    <i class="myAssets_return"></i>
+                </div>
+                <div class="myAssets_box">
+                    <div class="myAssets_apply">
+                        <P>
+                            <span>最新市值</span>
+                            <span class="myAssets_red"><%=item.mkt_val%>元</span>
+                        </P>
+                        <% if(item.allow_redemption == true){ %>
+	                        <p class="myAssets_name">
+	                        	<span class="stop"><i></i>可赎回</span>
+	                        	<a href="proRed.html?productno=<%=item.fund_code%>" title="" ref="<%= item.productno %>">赎回</a>
+	                        </p>
+                        <% } %>
+                    </div>
+                    <!-- <div class="myAssets_con">
+                        <p>累计收益:<span class="myAssets_org">4532.00元</span></p>
+                        <p>7日年化收益率:<span class="myAssets_O">6.1234%</span></p>
+                    </div> -->
+                </div>
+            </div>
+        </article>
+     <%})%>
+</script>
+<script>
+    seajs.use('controller/myAssets',function(main){
+        main.init();
+    })
+</script>
+</body>
+</html>

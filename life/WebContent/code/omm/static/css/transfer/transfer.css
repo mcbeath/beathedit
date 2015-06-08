@@ -1,0 +1,28 @@
+.div_right{border:5px solid #c8c7cd;width:23px;height:23px;vertical-align: middle;margin-top: -5px; display:inline-block;transform:rotate(45deg);-ms-transform:rotate(45deg);-moz-transform:rotate(45deg);-webkit-transform:rotate(45deg);-o-transform:rotate(45deg);border-bottom:none;border-left:none;}
+/* 选择转账类型 */
+.listmargin{margin: 40px 0 20px 0;}
+.trantimeps{width: 570px;margin: 0 auto;color: #808080;}
+.tratype_input{height: 84px;font-size: 30px;border: 0;width: 445px;}
+.notime{color: #e58316;}
+/* 选择银行卡 */
+.tra_bank{margin-top: 40px;}
+.tra_bank .bank_card{background: #FFF;padding: 0 20px;}
+.tra_bank .bank_card a{border-bottom: 2px dashed #f2f2f2;display: block;height: 106px;line-height: 108px;font-size: 30px;color: #000;}
+.tra_bank .bank_card i{float: right;}
+/* 选择转出转入账户 */
+.tra_bank .bank_card_acc{background: #FFF;padding: 0 20px;}
+.tra_bank .bank_card_acc a{border-bottom: 2px dashed #f2f2f2;display: block;padding: 20px 0;font-size: 30px;}
+.tra_bank .bank_card_acc:last-child a,.tra_bank .bank_card:last-child a{border-bottom: none;}
+.tra_bank .bank_card_acc span{font-size: 24px;color: #b9bbbb;}
+.tra_bank .bank_card_acc i{float: right;color: #b9bbbb;margin-top: -15px;}
+.tra_bank .bank_card_acc .color0{color: #000;}
+.tra_bank .bank_card_acc .colorb{color: #b9bbbb;}
+/* 银行卡证券 */
+.tra_bank .bank_sec{margin: 0 20px;background: #FFF;border-radius: 10px;}
+.tra_bank .bank_sec a{display: block;padding:20px 20px 19px 25px;}
+.tra_bank .bank_sec img{float: left;margin: 10px 15px 0 0;}
+.tra_bank .bank_sec p{font-size: 30px;color: #000;}
+.tra_bank .bank_sec span{font-size: 24px;color: #b9bbbb;display:inline-block;margin-top: 3px;}
+.tra_bank .bank_sec i{float: right;margin-top: -15px;}
+.trasecbank{width: 570px;margin: 40px auto 0;color: #808080;}
+.trasecbank i {display: inline-block;width: 32px;height: 32px;margin-right: 10px;background: url("../../../static/images/tra/attention.png") no-repeat;vertical-align: middle;}

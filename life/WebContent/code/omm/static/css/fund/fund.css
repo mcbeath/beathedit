@@ -1,0 +1,179 @@
+/*货币基金A   000380*/
+.currency_txt{line-height: 60px;background: #fafafa;border-bottom: 1px solid #f5f5f5;text-align: center;color: #b9b9c1;}
+.currency_nav{width:100%;position: relative;font-size: 24px;color: #b9bbba;background: #fff;}
+.currency_nav li{width:50%;float: left;border-bottom: 4px solid #e57e17;}
+.currency_nav li a{display:block;color: #808080;padding:15px 0;}
+.currency_nav li p{text-align: center;line-height: 48px;}
+.arrow{position:absolute;bottom:3px;left:144px; /* 圆角的位置需要细心调试哦 */width:0;height:0;font-size:0;border:solid 10px;border-color:#fff #fff #e57e17 #fff;}
+.check {color: #e57e17;background: url("../../../static/images/fund/tab_on.png") no-repeat center bottom;}
+.check .txt1{color: #000;}
+.check .txt2{color: #ff7e02;font-weight: bold;font-size: 30px;}
+.currency_img{background: -webkit-gradient(linear,0 0,0 100%,from(#5e5d65),to(#827f8a));}
+.currency_img img{width:600px;height: 250px;}
+.currency_con{padding:0 20px;color: #808080;border-bottom: 2px dashed #e6e6e6;width:94%;}
+.currency_con p{line-height: 73px;}
+.currency_next span{padding-left: 10px;display: inline-block;margin-left:15px;width:28%;}
+.currency_next i.sell{background: url("../../../static/images/fund/sellingpoint_background.png") no-repeat left center;display: inline-block;width:44px;height: 44px;vertical-align: middle;margin: 0 5px;}
+.currency_time{display: -webkit-box;margin-top: 50px;}
+.currency_time li{-webkit-box-flex:1;text-align: center;}
+.currency_time li a{color: #9a9899;background: #e7e7e7;display: block;height: 72px;line-height: 72px;}
+.currency_time li a.cur{color: #FFF;background: #e67e17;}
+.currency_rate{margin:20px;background: #fff;border-radius: 10px;box-shadow:0px 0px 15px #C8C8C8;-webkit-box-shadow:0px 0px 15px #C8C8C8;-moz-box-shadow:0px 0px 15px #C8C8C8;}  
+.currency_fri{line-height: 64px;text-align: center;color: #e57e17;}
+.currrecy_title,.cash_title{margin-bottom: 30px;background: #fff;color:#b9bbbb;}
+.currrecy_box{padding:20px 40px;}
+.currrecy_box span{display: inline-block;}
+.currrecy_box span.currrecy_cessVal{float: right;margin:30px 67px 0 0;}
+.currrecy_box2{padding:16px 40px 18px;}
+.currrecy_txt span{margin-left:40px;display: inline-block;}
+.currrecy_d{color: #ff8000;font-size: 48px;font-weight: bold;}
+.currrecy_box2 span{display: inline-block;width:275px;}
+.prolsit_d{color: #ff8000;font-size: 48px;font-weight: bold;}
+.prolsit_black{color: #000;margin-top: 10px;}
+.pingsecur_t{padding:20px}
+.pingsecur_t p{margin-bottom: 15px;}
+.pingsecur_time ul li{margin: 8px 0;position: relative;}
+.pingsecur_time ul li .sell_bg{width:450px;height:4px;background: #e5e5e5;position: absolute;top:20px;left:60px;z-index: 1}
+.pingsecur_time ul li:first-child i{display: inline-block;width:44px;height: 44px;}
+.pingsecur_time ul li:first-child i.sell{background: url("../../../static/images/fund/sellingpoint_background.png") no-repeat;}
+.pingsecur_time ul li:last-child{color: #808080;}
+.pingsecur_time span{display: inline-block;width:144.5px;text-align: center;position: relative;z-index: 2;}
+/*平安证券稳健资本一号*/
+.list_bg{width:220px;height: 16px;background: #d8d8d8;display: inline-block;}
+.list_bg2{width:110px;height: 16px;background: #e57e17;display: inline-block;position: absolute;top:24px; right: 0;}
+.pingsecur_nav{display: -webkit-box;width:640px;height: 72px;position: relative;font-size: 24px;color: #b9bbba;background: #fff;}
+.pingsecur_nav li a{display:block;text-align: center;border-bottom: 4px solid #e57e17;line-height: 72px;height: 68px;}
+.prolist_process{width: 43%;}
+.process{width: 260px;height: 16px;display: inline-block;background: #d8d8d8;position: relative;}
+.processVal{width: 50%;height: 16px;background: #e67e17;position: absolute;left: 0;}
+.currrecy_title2{margin-bottom: 30px;background: #fff;color:#b9b9c1;box-shadow:0px 2px 15px #C8C8C8;-webkit-box-shadow:0px 2px 15px #C8C8C8;-moz-box-shadow:0px 2px 15px #C8C8C8;}
+.currrecy_title2 .currrecy_box{padding:20px;display:inline-block;width:94%;}
+.currrecy_title2 .currrecy_box span{display: inline-block;width: 32%;}
+.prolsit_e{background: url("../../../static/images/list/lable_hot.png") no-repeat right;height: 32px;margin-top: -50px;}
+.prolsit_f{color: #e17912;}
+.prolsit_m{color: #e17912;margin-top: 10px;}
+.prolsit_c{color: #808080;margin-top: 10px;}
+.prolsit_p{color: #b9bbbb;margin-top: 20px;}
+.currrecy_title2 .currrecy_box2{padding:0px;margin: 0 20px;display:inline-block;width:94%;border-bottom: 2px solid #eee;border-top: 2px solid #eee;}
+.currrecy_title2 .currrecy_box2 span{width:24%;display: inline-block;border-right: 1px dashed #e6e6e6;padding: 20px 0;}
+.currrecy_title2 .currrecy_box2 span:last-child{border-right: none;}
+.currrecy_title2 .currrecy_box2 span p{text-align: center;}
+/* 华夏精选基金 */
+#footer_fixed{width: 100%;background: #f0f1f3;position: fixed;bottom: 0;z-index: 3;text-align: center;font-size: 36px;}
+#footer_fixed a.button_buy{width: 100%;background: #e20411;height: 80px;line-height: 80px;display: block;color: #FFF;}
+#footer_fixed a.button_buy2{width: 100%;background: #ddd;height: 80px;line-height: 80px;display: block;color: #FFF;}
+#footer_fixed a.button_buy_2{width: 50%;background: #e20411;height: 80px;line-height: 80px;display: block;color: #FFF;float: right;}
+#footer_fixed a.button_buy_22{width: 50%;background: #ddd;height: 80px;line-height: 80px;display: block;color: #FFF;float: right;}
+#footer_fixed a.button_redeem{width: 50%;background: #f5f5f5;height: 80px;line-height: 80px;padding-;display: block;color: #9b9b9b;float: left;}
+#footer_fixed a.button_redeem_2{width: 50%;background: #f5f5f5;padding-;display: block;color: #9b9b9b;float: left;font-size: 24px;float: left;padding: 12px 0;}
+#footer_fixed a.button_redeem_2 p{text-align: center;}
+.fund_tab_3{width: 100%;background: #FFF;}
+.fund_tab_3 li{width: 50%;float: left;border-bottom: 4px solid #e67e17;text-align: center;}
+/*.fund_tab_3 li{width: 33%;float: left;border-bottom: 4px solid #e67e17;text-align: center;}
+.fund_tab_3 li:first-child{width: 34%;}*/
+.fund_tab_3 li a{display:block;height: 70px;line-height: 70px;color: #c3c3c3;}
+.fund_tab_2{width: 100%;background: #FFF;}
+.fund_tab_2 li{width: 50%;float: left;border-bottom: 4px solid #e67e17;text-align: center;}
+.fund_tab_2 li a{display:block;height: 70px;line-height: 70px;color: #c3c3c3;}
+.fund_tab_6{width: 100%;background: #FFF;}
+.fund_tab_6 li{float: left;border-bottom: 4px solid #e67e17;text-align: center;}
+.fund_tab_6 li a{display:block;height: 70px;line-height: 70px;color: #c3c3c3;}
+.width_50{width:50%}
+.width_33{width:33%}
+.width_25{width:25%}
+ul li a.tab_check{color: #e17912;background: url("../../../static/images/fund/tab_on.png") no-repeat center bottom;}
+.fund_tab_box h1,.fund_tab_box_4 h1{background: #faf7f5;color: #b9bbbb;line-height: 64px;text-indent: 20px;}
+.fund_expert_review{background: #FFF;}
+.fund_expert_review .expert_review_risk{padding: 0 20px;}
+.fund_expert_review .expert_review_risk p{color: #000;height:66px;line-height: 66px;border-top: 2px dashed #e6e6e6;}
+.fund_expert_review .expert_review_risk p:first-child{border: none;}
+.fund_expert_review .expert_review_risk p i{margin: -5px 10px 0 20px;vertical-align: middle;}
+.fund_worth table{width: 640px;margin: 0 auto;text-align: center;background: #faf7f5;border-top: 2px solid #747474;border-bottom: 2px solid #747474;}
+.fund_worth table tr:first-child{background: #98969e;}
+.fund_worth table tr:nth-child(even){background: #FFF;}
+.fund_worth table tr td{border-left: 2px solid #747474;color: #000;padding: 18px 0;}
+.fund_worth table tr td:first-child{width: 159px;color: #808080;border: none;}
+.fund_worth table tr td:nth-child(4){width: 159px;color: #ff8000;font-size: 30px;}
+.fund_worth table tr:first-child td{font-size: 24px;color: #FFF;}
+.fund_tab_4{width:100%;background: -webkit-gradient(linear, 0% 0%, 0% 100%,from(#f3f3f3), to(#e6e6e6));}
+.fund_tab_4 li{width: 25%;float: left;text-align: center;border-bottom: 1px solid #ababad;}
+.fund_tab_4 li a,.fund_tab_5 li a{display:block;color: #808080;padding: 16px 0;}
+.fund_tab_4 li a i,.fund_tab_5 li a i{margin-bottom: 5px;}
+.fund_tab_4 li a p,.fund_tab_5 li a p{text-align: center;}
+ul li a.tab_check_4{color: #FFF;background: -webkit-gradient(linear, 0% 0%, 0% 100%,from(#ff9340), to(#f2720f));}
+.fund_tab_5{width: 100%;background: #f7f7f7;}
+.fund_tab_5 li{width: 50%;float: left;text-align: center;border-bottom: 1px solid #ababad;}
+.fund_tab_introduce{background: #FFF;}
+.fund_tab_introduce table{width: 600px;margin: 0 auto;}
+.fund_tab_introduce table tr td{border-top: 2px dashed #e6e6e6;color: #808080;padding: 18px 0;}
+.fund_tab_introduce table tr:first-child td{border: none;}
+.fund_tab_introduce table tr td:first-child{text-indent:30px;color: #b9bbbb;width: 175px;}
+.fund_tab_introduce p{text-indent:50px;color: #808080;padding: 0 20px;line-height: 40px;}
+.fund_tab_introduce table.table_results{width: 640px;margin: 0 auto;text-align: center;background: #faf7f5;}
+.fund_tab_introduce table.table_results tr:first-child{background: #98969e;}
+.fund_tab_introduce table.table_results tr:nth-child(even){background: #FFF;}
+.fund_tab_introduce table.table_results tr td{border-left: 2px solid #747474;color: #000;width: 212px;padding: 18px 0;}
+.fund_tab_introduce table.table_results tr td:first-child{color: #808080;text-indent: 0;}
+.fund_tab_introduce table.table_results tr:first-child td{color: #FFF;}
+.fund_tab_trading{background: #FFF;}
+.fund_tab_trading table.fund_tab_trading_rules{width: 640px;margin: 0 auto;padding: 0 20px;}
+.fund_tab_trading table.fund_tab_trading_rules tr td{border-top: 2px dashed #e6e6e6;padding: 18px 0;}
+.fund_tab_trading table.fund_tab_trading_rules tr td:first-child{width: 150px;text-align: right;color: #b9bbbb;}
+.fund_tab_trading table.fund_tab_trading_rules tr td:nth-child(2){padding:18px 20px 18px 40px;color: #808080;}
+.fund_tab_trading table.fund_tab_trading_rules tr:first-child td{border: none;}
+.fund_tab_trading table.fund_tab_trading_cost{width: 640px;margin: 0 auto;padding: 0 20px;}
+.fund_tab_trading table.fund_tab_trading_cost tr td{border-top: 2px dashed #e6e6e6;padding: 18px 0;}
+.fund_tab_trading table.fund_tab_trading_cost tr td:first-child{width: 300px;text-align: right;color: #b9bbbb;}
+.fund_tab_trading table.fund_tab_trading_cost tr td:nth-child(2){padding:18px 20px 18px 40px;color: #808080;}
+.fund_tab_trading table.fund_tab_trading_cost tr:first-child td{border: none;}
+.fund_tab_trading table.fund_tab_trading_cost tr td i{text-decoration: line-through;}
+.fund_tab_Share table{width: 640px;margin: 0 auto;text-align: center;background: #faf7f5;border-top: 2px solid #747474;border-bottom: 2px solid #747474;}
+.fund_tab_Share table tr:first-child{background: #98969e;}
+.fund_tab_Share table tr:nth-child(even){background: #FFF;}
+.fund_tab_Share table tr td{border-left: 2px solid #747474;color: #808080;padding: 18px 0;width: 128px;}
+.fund_tab_Share table tr td:first-child{border: none;width: 89px;}
+.fund_tab_Share table tr td:nth-child(2),.fund_tab_Share table tr td:nth-child(3){width: 138px;}
+.fund_tab_Share table tr td:nth-child(4){width: 128px;}
+.fund_tab_Share table tr td:nth-child(5){width:139px;color: #000;}
+.fund_tab_Share table tr:first-child td{font-size: 24px;color: #FFF;}
+.fund_tab_Share table tr td p{text-align: center;}
+.fund_tab_Share table tr td p:first-child{color: #b9bbbb;}
+.fund_tab_Share table tr td p:nth-child(2){color: #FF8000;}
+/* 图标 */
+.icon_view_1{background: url("../../../static/images/fund/view_1.png") no-repeat;background-size:cover;width:32px;height:30px;display:inline-block;}
+.icon_view_2{background: url("../../../static/images/fund/view_2.png") no-repeat;background-size:cover;width:32px;height:33px;display:inline-block;}
+.icon_view_3{background: url("../../../static/images/fund/view_3.png") no-repeat;background-size:cover;width:32px;height:37px;display:inline-block;}
+.icon_offon_1{background: url("../../../static/images/fund/offon_1.png") no-repeat;background-size:cover;width:28px;height:32px;display:inline-block;}
+.icon_offon_11{background: url("../../../static/images/fund/offon_2.png") no-repeat;background-size:cover;width:28px;height:32px;display:inline-block;}
+.icon_offon_2{background: url("../../../static/images/fund/offon_3.png") no-repeat;background-size:cover;width:32px;height:32px;display:inline-block;}
+.icon_offon_22{background: url("../../../static/images/fund/offon_4.png") no-repeat;background-size:cover;width:32px;height:32px;display:inline-block;}
+.icon_offon_3{background: url("../../../static/images/fund/offon_5.png") no-repeat;background-size:cover;width:32px;height:32px;display:inline-block;}
+.icon_offon_33{background: url("../../../static/images/fund/offon_6.png") no-repeat;background-size:cover;width:32px;height:32px;display:inline-block;}
+.icon_offon_4{background: url("../../../static/images/fund/offon_7.png") no-repeat;background-size:cover;width:32px;height:32px;display:inline-block;}
+.icon_offon_44{background: url("../../../static/images/fund/offon_8.png") no-repeat;background-size:cover;width:32px;height:32px;display:inline-block;}
+/* table_zqlc 新增css*/
+#funContains {padding:25px 15px;}
+#funContains table{border:#e6e6e6 solid 2px;color:#b9b9c1;color: #808080;}
+#funContains table th{border-bottom:#e6e6e6 solid 2px;padding: 10px;}
+#funContains table td{border-bottom:#e6e6e6 solid 2px;border-left:#e6e6e6 solid 2px;padding: 10px;line-height: 40px;}
+#addmore{width: 640px;display: block;text-align: center;font-size: 28px;line-height: 56px;margin: 10px auto;color: #333;}
+a.worth{color: #4595e6;float: right;}
+/* 现金宝 */
+.currency_time_cash{margin-top: 50px;}
+.currency_time_cash li{text-align: center;float: left;width: 33%;}
+.currency_time_cash li:first-child{width: 34%;}
+.currency_time_cash li a{color: #9a9899;background: #e7e7e7;display: block;height: 72px;line-height: 72px;}
+.currency_time_cash li a.cur{color: #FFF;background: #e67e17;}
+.fund_tab_cash{width: 100%;background: #FFF;}
+.fund_tab_cash li{width: 25%;float: left;border-bottom: 4px solid #e67e17;text-align: center;}
+.fund_tab_cash li a{display:block;height: 70px;line-height: 70px;color: #c3c3c3;}
+.bordertop{border-top: 1px solid #e6e6e6;}
+.cash_title .cash_title_padding{padding: 20px 20px 15px 40px;}
+.cash_title .cash_name{font-size: 30px;color: #000;}
+.cash_title .cash_paper{font-size: 24px;color: #b9bbbb;margin-top: 6px;}
+.cash_title .cash_hot{float: right;height: 32px;margin-top: 20px;font-size: 24px;color: #808080;}
+.cash_title .cash_time{font-size: 24px;color: #808080;}
+.cash_problem{background: #FFF;padding: 20px 30px;color: #808080;}
+.cash_problem span{display: inline-block;}
+.cash_rules_center{text-align: center;}
+.cash_problem img.cash_rules{width: 100%;}
